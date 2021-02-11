@@ -1,7 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from '../actions/userActions'
 
 const Header = () => {
+  const dispatch = useDispatch()
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
+
+  const logoutHandler = () => {
+    dispatch(logout())
+  }
   return (
     <>
       {/* <!-- ======= Header ======= --> */}
@@ -12,9 +22,6 @@ const Header = () => {
               <span>Com</span>pany
             </Link>
           </h1>
-          <Link to='/' className='logo me-auto me-lg-0'>
-            <img src='../assets/img/logo.png' alt='' className='img-fluid' />
-          </Link>
 
           <nav id='navbar' className='navbar order-last order-lg-0'>
             <ul>
@@ -52,17 +59,30 @@ const Header = () => {
               <li>
                 <Link to='/contact'>Contact</Link>
               </li>
+
+              {userInfo ? (
+                <li className='dropdown'>
+                  <Link>
+                    <span>{userInfo.name}</span>
+                    <i className='bi bi-chevron-down'></i>
+                  </Link>
+                  <ul>
+                    <li>
+                      <Link to='/profile'>Profile</Link>
+                    </li>
+                    <li>
+                      <Link onClick={logoutHandler}>Logout</Link>
+                    </li>
+                  </ul>
+                </li>
+              ) : (
+                <li>
+                  <Link to='/signin'>Sign-In</Link>
+                </li>
+              )}
             </ul>
             <i className='bi bi-list mobile-nav-toggle'></i>
           </nav>
-
-          <div className='header-social-links d-flex'>
-            <div class='box'>
-              <div class='btn-wrap'>
-                <Link to='/login'>Sign-In</Link>
-              </div>
-            </div>
-          </div>
         </div>
       </header>
     </>
@@ -70,3 +90,9 @@ const Header = () => {
 }
 
 export default Header
+
+/* <div className='box'>
+<div className='btn-wrap '>
+  <Link to='/signin'>Sign-In</Link>
+</div>
+</div> */

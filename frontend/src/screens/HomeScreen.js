@@ -468,28 +468,28 @@ const HomeScreen = () => {
         </section>
 
         {/* <!-- ======= Frequently Asked Questions Section ======= --> */}
-        <section id='faq' class='faq section-bg'>
-          <div class='container' data-aos='fade-up'>
-            <div class='section-title'>
+        <section id='faq' className='faq section-bg'>
+          <div className='container' data-aos='fade-up'>
+            <div className='section-title'>
               <h2>Frequently Asked Questions</h2>
             </div>
 
-            <div class='faq-list'>
+            <div className='faq-list'>
               <ul>
                 <li data-aos='fade-up'>
-                  <i class='bx bx-help-circle icon-help'></i>{' '}
+                  <i className='bx bx-help-circle icon-help'></i>{' '}
                   <a
                     data-bs-toggle='collapse'
-                    class='collapse'
+                    className='collapse'
                     data-bs-target='#faq-list-1'
                   >
                     Non consectetur a erat nam at lectus urna duis?{' '}
-                    <i class='bx bx-chevron-down icon-show'></i>
-                    <i class='bx bx-chevron-up icon-close'></i>
+                    <i className='bx bx-chevron-down icon-show'></i>
+                    <i className='bx bx-chevron-up icon-close'></i>
                   </a>
                   <div
                     id='faq-list-1'
-                    class='collapse show'
+                    className='collapse show'
                     data-bs-parent='.faq-list'
                   >
                     <p>
@@ -502,19 +502,19 @@ const HomeScreen = () => {
                 </li>
 
                 <li data-aos='fade-up' data-aos-delay='100'>
-                  <i class='bx bx-help-circle icon-help'></i>{' '}
+                  <i className='bx bx-help-circle icon-help'></i>{' '}
                   <a
                     data-bs-toggle='collapse'
                     data-bs-target='#faq-list-2'
-                    class='collapsed'
+                    className='collapsed'
                   >
                     Feugiat scelerisque varius morbi enim nunc?{' '}
-                    <i class='bx bx-chevron-down icon-show'></i>
-                    <i class='bx bx-chevron-up icon-close'></i>
+                    <i className='bx bx-chevron-down icon-show'></i>
+                    <i className='bx bx-chevron-up icon-close'></i>
                   </a>
                   <div
                     id='faq-list-2'
-                    class='collapse'
+                    className='collapse'
                     data-bs-parent='.faq-list'
                   >
                     <p>
@@ -529,19 +529,19 @@ const HomeScreen = () => {
                 </li>
 
                 <li data-aos='fade-up' data-aos-delay='200'>
-                  <i class='bx bx-help-circle icon-help'></i>{' '}
+                  <i className='bx bx-help-circle icon-help'></i>{' '}
                   <a
                     data-bs-toggle='collapse'
                     data-bs-target='#faq-list-3'
-                    class='collapsed'
+                    className='collapsed'
                   >
                     Dolor sit amet consectetur adipiscing elit?{' '}
-                    <i class='bx bx-chevron-down icon-show'></i>
-                    <i class='bx bx-chevron-up icon-close'></i>
+                    <i className='bx bx-chevron-down icon-show'></i>
+                    <i className='bx bx-chevron-up icon-close'></i>
                   </a>
                   <div
                     id='faq-list-3'
-                    class='collapse'
+                    className='collapse'
                     data-bs-parent='.faq-list'
                   >
                     <p>
@@ -556,19 +556,19 @@ const HomeScreen = () => {
                 </li>
 
                 <li data-aos='fade-up' data-aos-delay='300'>
-                  <i class='bx bx-help-circle icon-help'></i>{' '}
+                  <i className='bx bx-help-circle icon-help'></i>{' '}
                   <a
                     data-bs-toggle='collapse'
                     data-bs-target='#faq-list-4'
-                    class='collapsed'
+                    className='collapsed'
                   >
                     Tempus quam pellentesque nec nam aliquam sem et tortor
-                    consequat? <i class='bx bx-chevron-down icon-show'></i>
-                    <i class='bx bx-chevron-up icon-close'></i>
+                    consequat? <i className='bx bx-chevron-down icon-show'></i>
+                    <i className='bx bx-chevron-up icon-close'></i>
                   </a>
                   <div
                     id='faq-list-4'
-                    class='collapse'
+                    className='collapse'
                     data-bs-parent='.faq-list'
                   >
                     <p>
@@ -582,20 +582,20 @@ const HomeScreen = () => {
                 </li>
 
                 <li data-aos='fade-up' data-aos-delay='400'>
-                  <i class='bx bx-help-circle icon-help'></i>{' '}
+                  <i className='bx bx-help-circle icon-help'></i>{' '}
                   <a
                     data-bs-toggle='collapse'
                     data-bs-target='#faq-list-5'
-                    class='collapsed'
+                    className='collapsed'
                   >
                     Tortor vitae purus faucibus ornare. Varius vel pharetra vel
                     turpis nunc eget lorem dolor?{' '}
-                    <i class='bx bx-chevron-down icon-show'></i>
-                    <i class='bx bx-chevron-up icon-close'></i>
+                    <i className='bx bx-chevron-down icon-show'></i>
+                    <i className='bx bx-chevron-up icon-close'></i>
                   </a>
                   <div
                     id='faq-list-5'
-                    class='collapse'
+                    className='collapse'
                     data-bs-parent='.faq-list'
                   >
                     <p>
@@ -615,9 +615,9 @@ const HomeScreen = () => {
 
       <a
         href='#'
-        class='back-to-top d-flex align-items-center justify-content-center'
+        className='back-to-top d-flex align-items-center justify-content-center'
       >
-        <i class='bi bi-arrow-up-short'></i>
+        <i className='bi bi-arrow-up-short'></i>
       </a>
     </>
   )

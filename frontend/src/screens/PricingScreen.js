@@ -5,9 +5,9 @@ const PricingScreen = () => {
   return (
     <>
       {/* <!-- ======= Breadcrumbs ======= --> */}
-      <section id='breadcrumbs' class='breadcrumbs'>
-        <div class='container'>
-          <div class='d-flex justify-content-between align-items-center'>
+      <section id='breadcrumbs' className='breadcrumbs'>
+        <div className='container'>
+          <div className='d-flex justify-content-between align-items-center'>
             <h2>Pricing</h2>
             <ol>
               <li>
@@ -20,11 +20,11 @@ const PricingScreen = () => {
       </section>
 
       {/* <!-- ======= Pricing Section ======= --> */}
-      <section id='pricing' class='pricing'>
-        <div class='container' data-aos='fade-up'>
-          <div class='row'>
-            <div class='col-lg-3 col-md-6'>
-              <div class='box'>
+      <section id='pricing' className='pricing'>
+        <div className='container' data-aos='fade-up'>
+          <div className='row'>
+            <div className='col-lg-3 col-md-6'>
+              <div className='box'>
                 <h3>Free</h3>
                 <h4>
                   <sup>$</sup>0<span> / month</span>
@@ -33,19 +33,19 @@ const PricingScreen = () => {
                   <li>Aida dere</li>
                   <li>Nec feugiat nisl</li>
                   <li>Nulla at volutpat dola</li>
-                  <li class='na'>Pharetra massa</li>
-                  <li class='na'>Massa ultricies mi</li>
+                  <li className='na'>Pharetra massa</li>
+                  <li className='na'>Massa ultricies mi</li>
                 </ul>
-                <div class='btn-wrap'>
-                  <a href='#' class='btn-buy'>
+                <div className='btn-wrap'>
+                  <a href='#' className='btn-buy'>
                     Buy Now
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class='col-lg-3 col-md-6 mt-4 mt-md-0'>
-              <div class='box featured'>
+            <div className='col-lg-3 col-md-6 mt-4 mt-md-0'>
+              <div className='box featured'>
                 <h3>Business</h3>
                 <h4>
                   <sup>$</sup>19<span> / month</span>
@@ -55,18 +55,18 @@ const PricingScreen = () => {
                   <li>Nec feugiat nisl</li>
                   <li>Nulla at volutpat dola</li>
                   <li>Pharetra massa</li>
-                  <li class='na'>Massa ultricies mi</li>
+                  <li className='na'>Massa ultricies mi</li>
                 </ul>
-                <div class='btn-wrap'>
-                  <a href='#' class='btn-buy'>
+                <div className='btn-wrap'>
+                  <a href='#' className='btn-buy'>
                     Buy Now
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class='col-lg-3 col-md-6 mt-4 mt-lg-0'>
-              <div class='box'>
+            <div className='col-lg-3 col-md-6 mt-4 mt-lg-0'>
+              <div className='box'>
                 <h3>Developer</h3>
                 <h4>
                   <sup>$</sup>29<span> / month</span>
@@ -78,17 +78,17 @@ const PricingScreen = () => {
                   <li>Pharetra massa</li>
                   <li>Massa ultricies mi</li>
                 </ul>
-                <div class='btn-wrap'>
-                  <a href='#' class='btn-buy'>
+                <div className='btn-wrap'>
+                  <a href='#' className='btn-buy'>
                     Buy Now
                   </a>
                 </div>
               </div>
             </div>
 
-            <div class='col-lg-3 col-md-6 mt-4 mt-lg-0'>
-              <div class='box'>
-                <span class='advanced'>Advanced</span>
+            <div className='col-lg-3 col-md-6 mt-4 mt-lg-0'>
+              <div className='box'>
+                <span className='advanced'>Advanced</span>
                 <h3>Ultimate</h3>
                 <h4>
                   <sup>$</sup>49<span> / month</span>
@@ -100,8 +100,8 @@ const PricingScreen = () => {
                   <li>Pharetra massa</li>
                   <li>Massa ultricies mi</li>
                 </ul>
-                <div class='btn-wrap'>
-                  <a href='#' class='btn-buy'>
+                <div className='btn-wrap'>
+                  <a href='#' className='btn-buy'>
                     Buy Now
                   </a>
                 </div>
@@ -112,28 +112,28 @@ const PricingScreen = () => {
       </section>
 
       {/* <!-- ======= Frequently Asked Questions Section ======= --> */}
-      <section id='faq' class='faq section-bg'>
-        <div class='container' data-aos='fade-up'>
-          <div class='section-title'>
+      <section id='faq' className='faq section-bg'>
+        <div className='container' data-aos='fade-up'>
+          <div className='section-title'>
             <h2>Frequently Asked Questions</h2>
           </div>
 
-          <div class='faq-list'>
+          <div className='faq-list'>
             <ul>
               <li data-aos='fade-up'>
-                <i class='bx bx-help-circle icon-help'></i>{' '}
+                <i className='bx bx-help-circle icon-help'></i>{' '}
                 <a
                   data-bs-toggle='collapse'
-                  class='collapse'
+                  className='collapse'
                   data-bs-target='#faq-list-1'
                 >
                   Non consectetur a erat nam at lectus urna duis?{' '}
-                  <i class='bx bx-chevron-down icon-show'></i>
-                  <i class='bx bx-chevron-up icon-close'></i>
+                  <i className='bx bx-chevron-down icon-show'></i>
+                  <i className='bx bx-chevron-up icon-close'></i>
                 </a>
                 <div
                   id='faq-list-1'
-                  class='collapse show'
+                  className='collapse show'
                   data-bs-parent='.faq-list'
                 >
                   <p>
@@ -146,19 +146,19 @@ const PricingScreen = () => {
               </li>
 
               <li data-aos='fade-up' data-aos-delay='100'>
-                <i class='bx bx-help-circle icon-help'></i>{' '}
+                <i className='bx bx-help-circle icon-help'></i>{' '}
                 <a
                   data-bs-toggle='collapse'
                   data-bs-target='#faq-list-2'
-                  class='collapsed'
+                  className='collapsed'
                 >
                   Feugiat scelerisque varius morbi enim nunc?{' '}
-                  <i class='bx bx-chevron-down icon-show'></i>
-                  <i class='bx bx-chevron-up icon-close'></i>
+                  <i className='bx bx-chevron-down icon-show'></i>
+                  <i className='bx bx-chevron-up icon-close'></i>
                 </a>
                 <div
                   id='faq-list-2'
-                  class='collapse'
+                  className='collapse'
                   data-bs-parent='.faq-list'
                 >
                   <p>
@@ -172,19 +172,19 @@ const PricingScreen = () => {
               </li>
 
               <li data-aos='fade-up' data-aos-delay='200'>
-                <i class='bx bx-help-circle icon-help'></i>{' '}
+                <i className='bx bx-help-circle icon-help'></i>{' '}
                 <a
                   data-bs-toggle='collapse'
                   data-bs-target='#faq-list-3'
-                  class='collapsed'
+                  className='collapsed'
                 >
                   Dolor sit amet consectetur adipiscing elit?{' '}
-                  <i class='bx bx-chevron-down icon-show'></i>
-                  <i class='bx bx-chevron-up icon-close'></i>
+                  <i className='bx bx-chevron-down icon-show'></i>
+                  <i className='bx bx-chevron-up icon-close'></i>
                 </a>
                 <div
                   id='faq-list-3'
-                  class='collapse'
+                  className='collapse'
                   data-bs-parent='.faq-list'
                 >
                   <p>
@@ -199,19 +199,19 @@ const PricingScreen = () => {
               </li>
 
               <li data-aos='fade-up' data-aos-delay='300'>
-                <i class='bx bx-help-circle icon-help'></i>{' '}
+                <i className='bx bx-help-circle icon-help'></i>{' '}
                 <a
                   data-bs-toggle='collapse'
                   data-bs-target='#faq-list-4'
-                  class='collapsed'
+                  className='collapsed'
                 >
                   Tempus quam pellentesque nec nam aliquam sem et tortor
-                  consequat? <i class='bx bx-chevron-down icon-show'></i>
-                  <i class='bx bx-chevron-up icon-close'></i>
+                  consequat? <i className='bx bx-chevron-down icon-show'></i>
+                  <i className='bx bx-chevron-up icon-close'></i>
                 </a>
                 <div
                   id='faq-list-4'
-                  class='collapse'
+                  className='collapse'
                   data-bs-parent='.faq-list'
                 >
                   <p>
@@ -224,20 +224,20 @@ const PricingScreen = () => {
               </li>
 
               <li data-aos='fade-up' data-aos-delay='400'>
-                <i class='bx bx-help-circle icon-help'></i>{' '}
+                <i className='bx bx-help-circle icon-help'></i>{' '}
                 <a
                   data-bs-toggle='collapse'
                   data-bs-target='#faq-list-5'
-                  class='collapsed'
+                  className='collapsed'
                 >
                   Tortor vitae purus faucibus ornare. Varius vel pharetra vel
                   turpis nunc eget lorem dolor?{' '}
-                  <i class='bx bx-chevron-down icon-show'></i>
-                  <i class='bx bx-chevron-up icon-close'></i>
+                  <i className='bx bx-chevron-down icon-show'></i>
+                  <i className='bx bx-chevron-up icon-close'></i>
                 </a>
                 <div
                   id='faq-list-5'
-                  class='collapse'
+                  className='collapse'
                   data-bs-parent='.faq-list'
                 >
                   <p>

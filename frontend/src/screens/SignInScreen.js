@@ -1,18 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Message from '../components/Message'
+import Loader from '../components/Loader'
+import { login } from '../actions/userActions'
+import { useDispatch, useSelector } from 'react-redux'
 
-const RegisterScreen = () => {
+const LoginScreen = ({ history }) => {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const dispatch = useDispatch()
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { loading, error, userInfo } = userLogin
+
+  useEffect(() => {
+    if (userInfo) {
+      history.push('/profile')
+    }
+  }, [history, userInfo])
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    dispatch(login(email, password))
+  }
   return (
     <>
       <section id='breadcrumbs' className='breadcrumbs'>
         <div className='container'>
           <div className='d-flex justify-content-between align-items-center'>
-            <h2>Sign-Up</h2>
+            <h2>Sign-In</h2>
             <ol>
               <li>
                 <Link to='/'>Home</Link>
               </li>
-              <li>Sign-Up</li>
+              <li>Sign-In</li>
             </ol>
           </div>
         </div>
@@ -20,33 +42,25 @@ const RegisterScreen = () => {
 
       <section id='contact' className='contact' data-aos='fade-up'>
         <div className='section-title'>
-          <h2>Sign-Up</h2>
+          <h2>Sign-In</h2>
         </div>
         <div className='container'>
           <div className='row justify-content-center'>
             <div className='col-lg-10'>
-              <form className='php-email-form'>
+              <form className='php-email-form' onSubmit={submitHandler}>
+                {error && <Message variant='danger'>{error}</Message>}
+                {loading && <Loader />}
                 <div className='row'>
-                  <div className=' form-group mt-3 '>
-                    <div className=' form-group'>Name</div>
-                    <input
-                      type='name'
-                      className='form-control'
-                      name='name'
-                      id='name'
-                      placeholder='Your Name'
-                      required
-                    />
-                  </div>
                   <div className=' form-group mt-3 '>
                     <div className=' form-group'>E-mail</div>
                     <input
                       type='email'
                       className='form-control'
                       name='email'
-                      id='email'
                       placeholder='Your Email'
                       required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className='form-group mt-3'>
@@ -58,26 +72,17 @@ const RegisterScreen = () => {
                       id='password'
                       placeholder='Your Password'
                       required
-                    />
-                  </div>
-                  <div className='form-group mt-3'>
-                    <div className=' form-group'>Confirm Password</div>
-                    <input
-                      type='password'
-                      name='password'
-                      className='form-control'
-                      id='password'
-                      placeholder='Confirm Password'
-                      required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                 </div>
 
                 <div className='text-center my-3'>
-                  <button type='submit'>Sign-Up</button>
+                  <button type='submit'>Sign-In</button>
                 </div>
                 <div className='text-center mt-3 my-3'>
-                  Already have an Account? <Link to='/login'>Sign-In</Link> here
+                  New here? <Link to='/presignup'>Sign-Up</Link> first
                 </div>
               </form>
             </div>
@@ -88,4 +93,4 @@ const RegisterScreen = () => {
   )
 }
 
-export default RegisterScreen
+export default LoginScreen
