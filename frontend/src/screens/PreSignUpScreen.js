@@ -11,8 +11,9 @@ const PreSignUpScreen = ({ history }) => {
     history.push('/signup?role=student')
   }
 
-  const userRegister = useSelector((state) => state.userRegister)
-  const { userInfo } = userRegister
+  
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   useEffect(() => {
     if (userInfo) {

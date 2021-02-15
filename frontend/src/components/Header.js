@@ -32,7 +32,7 @@ const Header = () => {
               </li>
 
               <li className='dropdown'>
-                <Link to='/about'>
+                <Link>
                   <span>About</span> <i className='bi bi-chevron-down'></i>
                 </Link>
                 <ul>
