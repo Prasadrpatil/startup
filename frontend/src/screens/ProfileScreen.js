@@ -26,15 +26,13 @@ const ProfileScreen = ({ history }) => {
   const { success } = userUpdateProfile
 
   useEffect(() => {
-    
-      if (!user || !user.name || success) {
-        dispatch({ type: USER_UPDATE_PROFILE_RESET })
-        dispatch(getUserDetails('profile'))
-      } else {
-        setName(user.name)
-        setEmail(user.email)
-      }
-    
+    if (!user || !user.name || success) {
+      dispatch({ type: USER_UPDATE_PROFILE_RESET })
+      dispatch(getUserDetails('profile'))
+    } else {
+      setName(user.name)
+      setEmail(user.email)
+    }
   }, [dispatch, history, userInfo, user, success])
 
   const submitHandler = (e) => {
@@ -44,6 +42,19 @@ const ProfileScreen = ({ history }) => {
     } else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }))
     }
+  }
+
+  const createTeamHandler = () => {
+    const isLeader = true
+    dispatch(
+      updateUserProfile({
+        id: user._id,
+        name,
+        email,
+        password,
+        isLeader: isLeader,
+      })
+    )
   }
 
   return (
@@ -161,32 +172,13 @@ const ProfileScreen = ({ history }) => {
             </div>
 
             <div className='col-lg-6 pt-4 pt-lg-0' data-aos='fade-left'>
-              <p>
-                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-                aute irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum
-              </p>
-              <ul>
-                <li>
-                  <i className='ri-check-double-line'></i> Ullamco laboris nisi
-                  ut aliquip ex ea commodo consequa
-                </li>
-                <li>
-                  <i className='ri-check-double-line'></i> Duis aute irure dolor
-                  in reprehenderit in voluptate velit
-                </li>
-                <li>
-                  <i className='ri-check-double-line'></i> Ullamco laboris nisi
-                  ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                  reprehenderit in
-                </li>
-              </ul>
-              <p className='font-italic'>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
+              {!user.isLeader ? (
+                <button className='buttonAny' onClick={createTeamHandler}>
+                  Create Team
+                </button>
+              ) : (
+                <div>Team</div>
+              )}
             </div>
           </div>
         </div>

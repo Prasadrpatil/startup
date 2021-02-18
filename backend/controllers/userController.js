@@ -15,7 +15,8 @@ const authUser = asycHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      isAdmin: user.isAdmin,
+      role: user.role,
+      isLeader: user.isLeader,
       token: generateToken(user._id),
     })
   } else {
@@ -28,7 +29,7 @@ const authUser = asycHandler(async (req, res) => {
 // @route   POST /api/users
 // @access  Public
 const registerUser = asycHandler(async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body
+  const { name, email, password, confirmPassword, role } = req.body
 
   const userExists = await User.findOne({ email })
 
@@ -55,6 +56,7 @@ const registerUser = asycHandler(async (req, res) => {
     name,
     email,
     password,
+    role,
   })
 
   if (user) {
@@ -62,7 +64,7 @@ const registerUser = asycHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      isAdmin: user.isAdmin,
+      role: user.role,
       token: generateToken(user._id),
     })
   } else {
@@ -82,7 +84,8 @@ const getUserProfile = asycHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
-      isAdmin: user.isAdmin,
+      role: user.role,
+      isLeader: user.isLeader,
     })
   } else {
     res.status(401)
@@ -99,6 +102,7 @@ const updateUserProfile = asycHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
+    user.isLeader = req.body.isLeader || user.isLeader
     if (req.body.password) {
       user.password = req.body.password
     }
@@ -109,7 +113,7 @@ const updateUserProfile = asycHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
-      isAdmin: updatedUser.isAdmin,
+      isLeader: updatedUser.isLeader,
       token: generateToken(updatedUser._id),
     })
   } else {
@@ -163,8 +167,8 @@ const updateUser = asycHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
-    if (req.body.isAdmin || req.body.isAdmin === false) {
-      user.isAdmin = req.body.isAdmin
+    if (req.body.role || req.body.role === false) {
+      user.role = req.body.role
     }
     const updatedUser = await user.save()
 
@@ -172,7 +176,7 @@ const updateUser = asycHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
-      isAdmin: updatedUser.isAdmin,
+      role: updatedUser.role,
     })
   } else {
     res.status(401)

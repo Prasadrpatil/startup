@@ -31,7 +31,7 @@ const RegisterScreen = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
 
-    dispatch(register(name, email, password, confirmPassword))
+    dispatch(register(name, email, password, confirmPassword, role))
   }
 
   return (

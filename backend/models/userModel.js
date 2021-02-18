@@ -16,10 +16,20 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    isAdmin: {
+    isLeader: {
       type: Boolean,
       required: true,
       default: false,
+    },
+    role: {
+      type: String,
+      required: true,
+    },
+    profileImage: {
+      type: String,
+    },
+    teamId: {
+      type: Number,
     },
   },
   {
