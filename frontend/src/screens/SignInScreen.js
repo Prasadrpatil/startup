@@ -82,7 +82,7 @@ const LoginScreen = ({ history }) => {
                   <button type='submit'>Sign-In</button>
                 </div>
                 <div className='text-center mt-3 my-3'>
-                  New here? <Link to='/presignup'>Sign-Up</Link> first
+                  New here? <Link to='/signup'>Sign-Up</Link> first
                 </div>
               </form>
             </div>

@@ -32,6 +32,56 @@ h6 {
   font-family: 'Roboto', sans-serif;
 }
 
+.radio-container {
+  font-size: 14px;
+  padding: 8px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  position: relative;
+  cursor: pointer;
+  padding-right: 32px;
+}
+
+label:nth-last-child(1) {
+  padding-right: 0;
+}
+
+label::before {
+  content: "";
+  border: 2px solid #222;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin: -8px 20px;
+  margin-left: 0;
+  border-radius: 50%;
+}
+
+label::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: rgba(21, 214, 37, 0);
+  left: 7px;
+  top: 12px;
+  margin: -8px 10px;
+  margin-left: 0;
+  border-radius: 50%;
+
+  transition: all 0.4s;
+}
+
+input[type="radio"]:checked + label::after {
+  background: rgba(34, 34, 34, 1);
+}
+
 .buttonAny {
   background: #1bbd36;
   border: 0;

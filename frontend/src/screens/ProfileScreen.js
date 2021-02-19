@@ -35,13 +35,8 @@ const ProfileScreen = ({ history }) => {
     }
   }, [dispatch, history, userInfo, user, success])
 
-  const submitHandler = (e) => {
-    e.preventDefault()
-    if (password !== confirmPassword) {
-      setMessage('Passwords do not Match')
-    } else {
-      dispatch(updateUserProfile({ id: user._id, name, email, password }))
-    }
+  const editHandler = () => {
+    history.push('/editprofile')
   }
 
   const createTeamHandler = () => {
@@ -56,7 +51,6 @@ const ProfileScreen = ({ history }) => {
       })
     )
   }
-
   return (
     <>
       <section id='breadcrumbs' className='breadcrumbs'>
@@ -74,111 +68,41 @@ const ProfileScreen = ({ history }) => {
       </section>
 
       <section id='about-us' className='about-us'>
+        {message && <Message variant='danger'>{message}</Message>}
+        {error && <Message variant='danger'>{error}</Message>}
+        {loading && <Loader />}
         <div className='container' data-aos='fade-up'>
           <div className='row content'>
-            <div className='col-lg-6' data-aos='fade-right'>
-              <div className='row justify-content-center'>
-                <div className='col-lg-2'>
+            <div className='col-lg-4' data-aos='fade-right'>
+              <div className='row '>
+                <div className='col-lg-9'>
                   <Image src='assets/img/team/team-1.jpg' roundedCircle fluid />
+
                   <div className='section-title'>
-                    <button className='buttonAny mt-2 '>Edit</button>
+                    <div className='member-info mt-2'>
+                      <h4>{user.name}</h4>
+                    </div>
+                    <button className='buttonAny mt-2 ' onClick={editHandler}>
+                      Edit Profile
+                    </button>
                   </div>
                 </div>
-
-                <div className='container mt-1'>
-                  <div className='row justify-content-center'>
-                    <div className='col-lg-9'>
-                      <form className='php-email-form' onSubmit={submitHandler}>
-                        {message && (
-                          <Message variant='danger'>{message}</Message>
-                        )}
-                        {error && <Message variant='danger'>{error}</Message>}
-                        {loading && <Loader />}
-                      </form>
-                    </div>
-                  </div>
-                </div>
-
-                <section id='contact' className='contact' data-aos='fade-up'>
-                  <div className='container'>
-                    <div className='row justify-content-center'>
-                      <div className='col-lg-10'>
-                        <form
-                          className='php-email-form'
-                          onSubmit={submitHandler}
-                        >
-                          <div className='row'>
-                            <div className=' form-group mt-3 '>
-                              <div className=' form-group'>Name</div>
-                              <input
-                                type='name'
-                                name='name'
-                                className='form-control'
-                                placeholder='Your Name'
-                                required
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                              />
-                            </div>
-                            <div className=' form-group mt-3 '>
-                              <div className=' form-group'>E-mail</div>
-                              <input
-                                type='email'
-                                name='email'
-                                className='form-control'
-                                placeholder='Your Email'
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                              />
-                            </div>
-                            <div className='form-group mt-3'>
-                              <div className=' form-group'>Password</div>
-                              <input
-                                type='password'
-                                name='password'
-                                className='form-control'
-                                placeholder='Your Password'
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                              />
-                            </div>
-                            <div className='form-group mt-3'>
-                              <div className=' form-group'>
-                                Confirm Password
-                              </div>
-                              <input
-                                type='password'
-                                name='confirmPassword'
-                                className='form-control'
-                                placeholder='Confirm Password'
-                                value={confirmPassword}
-                                onChange={(e) =>
-                                  setConfirmPassword(e.target.value)
-                                }
-                              />
-                            </div>
-                          </div>
-
-                          <div className='text-center my-3'>
-                            <button type='submit'>Update</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </section>
               </div>
             </div>
 
-            <div className='col-lg-6 pt-4 pt-lg-0' data-aos='fade-left'>
-              {!user.isLeader ? (
-                <button className='buttonAny' onClick={createTeamHandler}>
-                  Create Team
-                </button>
-              ) : (
-                <div>Team</div>
-              )}
+            <div className='col-lg-8 pt-4 pt-lg-0' data-aos='fade-left'>
+              {user.isLeader ? (
+                <button className='buttonAny m-3'>Overview</button>
+              ) : user.role === 'mentor' ? (
+                <button className='buttonAny m-3'>Overview</button>
+              ) : user.role === 'member' ? (
+                <div>
+                  <button className='buttonAny m-3'>Overview</button>
+                  <button className='buttonAny m-3' onClick={createTeamHandler}>
+                    Create Team
+                  </button>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

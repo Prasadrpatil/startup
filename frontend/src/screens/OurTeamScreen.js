@@ -93,6 +93,7 @@ const OurTeamScreen = () => {
                   <span>Product Manager</span>
                 </div>
               </div>
+            
             </div>
 
             <div className='col-lg-3 col-md-6 d-flex align-items-stretch'>
