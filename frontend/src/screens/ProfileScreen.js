@@ -39,7 +39,7 @@ const ProfileScreen = ({ history }) => {
     history.push('/editprofile')
   }
 
-  const createTeamHandler = () => {
+  const addStartupHandler = () => {
     const isLeader = true
     dispatch(
       updateUserProfile({
@@ -96,13 +96,29 @@ const ProfileScreen = ({ history }) => {
               ) : user.role === 'mentor' ? (
                 <button className='buttonAny m-3'>Overview</button>
               ) : user.role === 'member' ? (
-                <div>
-                  <button className='buttonAny m-3'>Overview</button>
-                  <button className='buttonAny m-3' onClick={createTeamHandler}>
-                    Create Team
+                <>
+                  <button className='buttonAny m-3' onClick={addStartupHandler}>
+                    Add StartUp
                   </button>
-                </div>
+                  <div className='section-title'>
+                    <h3>Overview</h3>
+                  </div>
+                </>
               ) : null}
+              <>
+                <div className='container'>
+                  <h3>Experience: </h3>
+                  <div>
+                    10+ years of experience working with retailers, brands and
+                    agencies across digital marketing, e-commerce, brand, data &
+                    analytics, and product management. Huge passion for
+                    developing people and helping unlock their potential. Here
+                    to hopefully help, inspire and be inspired. Get in touch!
+                  </div>
+                  <br />
+                  <h3>Technologies: </h3>
+                </div>
+              </>
             </div>
           </div>
         </div>

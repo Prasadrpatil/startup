@@ -22,6 +22,9 @@ const TestimonialScreen = () => {
       {/* <!-- ======= Testimonials Section ======= --> */}
       <section id='testimonials' className='testimonials section-bg'>
         <div className='container'>
+          <div className='section-title' data-aos='fade-up'>
+            <h2>Testimonials</h2>
+          </div>
           <div className='row'>
             <div className='col-lg-6' data-aos='fade-up'>
               <div className='testimonial-item'>

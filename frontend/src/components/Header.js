@@ -32,7 +32,7 @@ const Header = () => {
               </li>
 
               <li className='dropdown'>
-                <Link>
+                <Link to='/'>
                   <span>About</span> <i className='bi bi-chevron-down'></i>
                 </Link>
                 <ul>
@@ -58,7 +58,7 @@ const Header = () => {
 
               {userInfo ? (
                 <li className='dropdown'>
-                  <Link>
+                  <Link to='/'>
                     <span>{userInfo.name}</span>
                     <i className='bi bi-chevron-down'></i>
                   </Link>
@@ -67,7 +67,9 @@ const Header = () => {
                       <Link to='/profile'>Profile</Link>
                     </li>
                     <li>
-                      <Link onClick={logoutHandler}>Logout</Link>
+                      <Link to='/' onClick={logoutHandler}>
+                        Logout
+                      </Link>
                     </li>
                   </ul>
                 </li>

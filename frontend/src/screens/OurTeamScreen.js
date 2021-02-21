@@ -44,18 +44,18 @@ const OurTeamScreen = () => {
                     alt=''
                   />
                   <div className='social'>
-                    <a href=''>
+                    <Link to='/team'>
                       <i className='bi bi-twitter'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-facebook'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-instagram'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-linkedin'></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='member-info'>
@@ -74,18 +74,18 @@ const OurTeamScreen = () => {
                     alt=''
                   />
                   <div className='social'>
-                    <a href=''>
+                    <Link to='/team'>
                       <i className='bi bi-twitter'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-facebook'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-instagram'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-linkedin'></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='member-info'>
@@ -105,18 +105,18 @@ const OurTeamScreen = () => {
                     alt=''
                   />
                   <div className='social'>
-                    <a href=''>
+                    <Link to='/team'>
                       <i className='bi bi-twitter'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-facebook'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-instagram'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-linkedin'></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='member-info'>
@@ -135,18 +135,18 @@ const OurTeamScreen = () => {
                     alt=''
                   />
                   <div className='social'>
-                    <a href=''>
+                    <Link to='/team'>
                       <i className='bi bi-twitter'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-facebook'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-instagram'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/team'>
                       <i className='bi bi-linkedin'></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='member-info'>

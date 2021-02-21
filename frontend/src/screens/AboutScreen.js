@@ -45,16 +45,16 @@ const AboutScreen = () => {
               </p>
               <ul>
                 <li>
-                  <i className='ri-check-double-line'></i> Ullamco laboris nisi ut
-                  aliquip ex ea commodo consequa
+                  <i className='ri-check-double-line'></i> Ullamco laboris nisi
+                  ut aliquip ex ea commodo consequa
                 </li>
                 <li>
-                  <i className='ri-check-double-line'></i> Duis aute irure dolor in
-                  reprehenderit in voluptate velit
+                  <i className='ri-check-double-line'></i> Duis aute irure dolor
+                  in reprehenderit in voluptate velit
                 </li>
                 <li>
-                  <i className='ri-check-double-line'></i> Ullamco laboris nisi ut
-                  aliquip ex ea commodo consequat. Duis aute irure dolor in
+                  <i className='ri-check-double-line'></i> Ullamco laboris nisi
+                  ut aliquip ex ea commodo consequat. Duis aute irure dolor in
                   reprehenderit in
                 </li>
               </ul>
@@ -92,18 +92,18 @@ const AboutScreen = () => {
                     alt=''
                   />
                   <div className='social'>
-                    <a href=''>
+                    <Link to='/about'>
                       <i className='bi bi-twitter'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-facebook'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-instagram'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-linkedin'></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='member-info'>
@@ -122,18 +122,18 @@ const AboutScreen = () => {
                     alt=''
                   />
                   <div className='social'>
-                    <a href=''>
+                    <Link to='/about'>
                       <i className='bi bi-twitter'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-facebook'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-instagram'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-linkedin'></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='member-info'>
@@ -152,18 +152,18 @@ const AboutScreen = () => {
                     alt=''
                   />
                   <div className='social'>
-                    <a href=''>
+                    <Link to='/about'>
                       <i className='bi bi-twitter'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-facebook'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-instagram'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-linkedin'></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='member-info'>
@@ -182,18 +182,18 @@ const AboutScreen = () => {
                     alt=''
                   />
                   <div className='social'>
-                    <a href=''>
+                    <Link to='/about'>
                       <i className='bi bi-twitter'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-facebook'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-instagram'></i>
-                    </a>
-                    <a href=''>
+                    </Link>
+                    <Link to='/about'>
                       <i className='bi bi-linkedin'></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className='member-info'>
@@ -326,7 +326,10 @@ const AboutScreen = () => {
             <h2>Clients</h2>
           </div>
 
-          <div className='row no-gutters clients-wrap clearfix' data-aos='fade-up'>
+          <div
+            className='row no-gutters clients-wrap clearfix'
+            data-aos='fade-up'
+          >
             <div className='col-lg-3 col-md-4 col-6'>
               <div className='client-logo'>
                 <img
