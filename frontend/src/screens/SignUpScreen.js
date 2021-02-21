@@ -53,41 +53,50 @@ const RegisterScreen = ({ history }) => {
         <div className='section-title'>
           <h2>Sign-Up</h2>
         </div>
-        
+
         <div className='container'>
           <div className='row justify-content-center'>
-            <div className='col-lg-10'>
+            <div className='col-lg-7'>
               <form className='php-email-form' onSubmit={submitHandler}>
                 {message && <Message variant='danger'>{message}</Message>}
                 {error && <Message variant='danger'>{error}</Message>}
                 {loading && <Loader />}
                 <div className='row'>
                   <div className=' form-group mt-3 '>
-                    <div className=' form-group'>Name</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-user m-2 icon' />
+                      <strong>Name</strong>
+                    </div>
                     <input
                       type='name'
                       name='name'
                       className='form-control'
-                      placeholder='Your Name'
+                      placeholder='Your Name*'
                       required
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
                   <div className=' form-group mt-3 '>
-                    <div className=' form-group'>E-mail</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-envelope m-2 icon' />
+                      <strong>E-mail</strong>
+                    </div>
                     <input
                       type='email'
                       name='email'
                       className='form-control'
-                      placeholder='Your Email'
+                      placeholder='Your Email*'
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className=' form-group mt-3 '>
-                    <div className=' form-group'>Role</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-users m-2 icon' />
+                      <strong>Role</strong>
+                    </div>
                     <div class='radio-container'>
                       <input
                         type='radio'
@@ -109,24 +118,30 @@ const RegisterScreen = ({ history }) => {
                     </div>
                   </div>
                   <div className='form-group mt-3'>
-                    <div className=' form-group'>Password</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-lock m-2 icon' />
+                      <strong>Password</strong>
+                    </div>
                     <input
                       type='password'
                       name='password'
                       className='form-control'
-                      placeholder='Your Password'
+                      placeholder='Your Password*'
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
                   <div className='form-group mt-3'>
-                    <div className=' form-group'>Confirm Password</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-lock m-2 icon' />
+                      <strong>Confirm Password</strong>
+                    </div>
                     <input
                       type='password'
                       name='confirmPassword'
                       className='form-control'
-                      placeholder='Confirm Password'
+                      placeholder='Confirm Password*'
                       required
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
@@ -138,14 +153,13 @@ const RegisterScreen = ({ history }) => {
                   <button type='submit'>Sign-Up</button>
                 </div>
                 <div className='text-center mt-3 my-3'>
-                  Already have an Account? <Link to='/signin'>Sign-In</Link>
+                  Already have an Account? <Link to='/signin'>Sign-In </Link>
                   here
                 </div>
               </form>
             </div>
           </div>
         </div>
-      
       </section>
     </>
   )

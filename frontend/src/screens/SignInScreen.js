@@ -46,31 +46,37 @@ const LoginScreen = ({ history }) => {
         </div>
         <div className='container'>
           <div className='row justify-content-center'>
-            <div className='col-lg-10'>
+            <div className='col-lg-7'>
               <form className='php-email-form' onSubmit={submitHandler}>
                 {error && <Message variant='danger'>{error}</Message>}
                 {loading && <Loader />}
                 <div className='row'>
                   <div className=' form-group mt-3 '>
-                    <div className=' form-group'>E-mail</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-envelope m-2 icon' />
+                      <strong>E-mail</strong>
+                    </div>
                     <input
                       type='email'
                       className='form-control'
                       name='email'
-                      placeholder='Your Email'
+                      placeholder='Your Email*'
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className='form-group mt-3'>
-                    <div className=' form-group'>Password</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-lock m-2 icon' />
+                      <strong>Password</strong>
+                    </div>
                     <input
                       type='password'
                       name='password'
                       className='form-control'
                       id='password'
-                      placeholder='Your Password'
+                      placeholder='Your Password*'
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -82,7 +88,7 @@ const LoginScreen = ({ history }) => {
                   <button type='submit'>Sign-In</button>
                 </div>
                 <div className='text-center mt-3 my-3'>
-                  New here? <Link to='/signup'>Sign-Up</Link> first
+                  New here? <Link to='/signup'> Sign-Up</Link> first
                 </div>
               </form>
             </div>

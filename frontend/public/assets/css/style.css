@@ -12,7 +12,9 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #4d4643;
 }
-
+.icon {
+  color: grey;
+}
 a {
   color: #1bbd36;
   text-decoration: none;

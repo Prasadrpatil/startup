@@ -69,14 +69,17 @@ const EditProfileScreen = ({ history }) => {
 
         <div className='container'>
           <div className='row justify-content-center'>
-            <div className='col-lg-10'>
+            <div className='col-lg-7'>
               <form className='php-email-form' onSubmit={submitHandler}>
                 {message && <Message variant='danger'>{message}</Message>}
                 {error && <Message variant='danger'>{error}</Message>}
                 {loading && <Loader />}
                 <div className='row'>
                   <div className=' form-group mt-3 '>
-                    <div className=' form-group'>Name</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-user m-2 icon' />
+                      <strong>Name</strong>
+                    </div>
                     <input
                       type='name'
                       name='name'
@@ -88,7 +91,10 @@ const EditProfileScreen = ({ history }) => {
                     />
                   </div>
                   <div className=' form-group mt-3 '>
-                    <div className=' form-group'>E-mail</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-envelope m-2 icon' />
+                      <strong>E-mail</strong>
+                    </div>
                     <input
                       type='email'
                       name='email'
@@ -100,7 +106,10 @@ const EditProfileScreen = ({ history }) => {
                     />
                   </div>
                   <div className='form-group mt-3'>
-                    <div className=' form-group'>Password</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-lock m-2 icon' />
+                      <strong>Password</strong>
+                    </div>
                     <input
                       type='password'
                       name='password'
@@ -111,7 +120,10 @@ const EditProfileScreen = ({ history }) => {
                     />
                   </div>
                   <div className='form-group mt-3'>
-                    <div className=' form-group'>Confirm Password</div>
+                    <div className=' form-group'>
+                      <i className='fas fa-lock m-2 icon' />
+                      <strong>Confirm Password</strong>
+                    </div>
                     <input
                       type='password'
                       name='confirmPassword'
