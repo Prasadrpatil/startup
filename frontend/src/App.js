@@ -13,12 +13,14 @@ import ContactScreen from './screens/ContactScreen'
 import ProfileScreen from './screens/ProfileScreen'
 import EditProfileScreen from './screens/EditProfileScreen'
 import AllMembersScreen from './screens/AllMembersScreen'
+import AllMentorsScreen from './screens/AllMentorsScreen'
 
 function App() {
   return (
     <Router>
       <Header />
       <main className='py-3'>
+        <Route path='/allmentors' component={AllMentorsScreen} />
         <Route path='/allmembers' component={AllMembersScreen} />
         <Route path='/editprofile' component={EditProfileScreen} />
         <Route path='/profile' component={ProfileScreen} />

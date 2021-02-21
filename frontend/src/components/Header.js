@@ -48,6 +48,23 @@ const Header = () => {
                 </ul>
               </li>
 
+              {userInfo && (
+                <li className='dropdown'>
+                  <Link to='/'>
+                    <span>Browse More</span>{' '}
+                    <i className='bi bi-chevron-down'></i>
+                  </Link>
+                  <ul>
+                    <li>
+                      <Link to='/allmembers'>Members</Link>
+                    </li>
+                    <li>
+                      <Link to='/allmentors'>Mentors</Link>
+                    </li>
+                  </ul>
+                </li>
+              )}
+
               <li>
                 <Link to='/services'>Services</Link>
               </li>

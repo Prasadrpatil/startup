@@ -82,9 +82,12 @@ const ProfileScreen = ({ history }) => {
                     <div className='member-info mt-2'>
                       <h4>{user.name}</h4>
                     </div>
-                    <button className='buttonAny mt-2 ' onClick={editHandler}>
+                    <Link
+                      className='btn-get-started mt-2 '
+                      onClick={editHandler}
+                    >
                       Edit Profile
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

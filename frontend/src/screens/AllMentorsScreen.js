@@ -2,11 +2,10 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { listUsers, deleteUser } from '../actions/userActions'
-import TeamMember from '../components/TeamMember'
+import Mentor from '../components/Mentor'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-
-const AllMembersScreen = ({ history }) => {
+const AllMentorsScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const userList = useSelector((state) => state.userList)
@@ -30,12 +29,12 @@ const AllMembersScreen = ({ history }) => {
       <section id='breadcrumbs' className='breadcrumbs'>
         <div className='container'>
           <div className='d-flex justify-content-between align-items-center'>
-            <h2>Members</h2>
+            <h2>Mentors</h2>
             <ol>
               <li>
                 <Link to='/'>Home</Link>
               </li>
-              <li>Members</li>
+              <li>Mentors</li>
             </ol>
           </div>
         </div>
@@ -47,13 +46,13 @@ const AllMembersScreen = ({ history }) => {
           {error && <Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
           <div className='section-title' data-aos='fade-up'>
-            <h2>All Members</h2>
+            <h2>All Mentors</h2>
           </div>
 
           <div className='row'>
             {users &&
               users.map((user) => (
-                <TeamMember user={user} actualUserId={actualUserId} />
+                <Mentor user={user} actualUserId={actualUserId} />
               ))}
           </div>
         </div>
@@ -62,4 +61,4 @@ const AllMembersScreen = ({ history }) => {
   )
 }
 
-export default AllMembersScreen
+export default AllMentorsScreen

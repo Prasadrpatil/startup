@@ -32,12 +32,35 @@ h6 {
   font-family: 'Roboto', sans-serif;
 }
 
+.btn-get-started {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 32px;
+  border-radius: 4px;
+  transition: 0.5s;
+  line-height: 1;
+  margin: 10px;
+  color: black;
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+  border: 2px solid #1bbd36;
+}
+
+.btn-get-started:hover {
+  background: #1bbd36;
+  color: #fff;
+  text-decoration: none;
+}
+
 .radio-container {
   font-size: 14px;
   padding: 8px;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   display: none;
 }
 
@@ -52,7 +75,7 @@ label:nth-last-child(1) {
 }
 
 label::before {
-  content: "";
+  content: '';
   border: 2px solid #222;
   display: inline-block;
   width: 25px;
@@ -63,7 +86,7 @@ label::before {
 }
 
 label::after {
-  content: "";
+  content: '';
   display: inline-block;
   position: absolute;
   width: 12px;
@@ -78,7 +101,7 @@ label::after {
   transition: all 0.4s;
 }
 
-input[type="radio"]:checked + label::after {
+input[type='radio']:checked + label::after {
   background: rgba(34, 34, 34, 1);
 }
 
