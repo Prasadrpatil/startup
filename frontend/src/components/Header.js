@@ -31,6 +31,23 @@ const Header = () => {
                 </Link>
               </li>
 
+              {userInfo && (
+                <li className='dropdown'>
+                  <Link to='/'>
+                    <span>Browse More</span>
+                    <i className='bi bi-chevron-down'></i>
+                  </Link>
+                  <ul>
+                    <li>
+                      <Link to='/allmembers'>Members</Link>
+                    </li>
+                    <li>
+                      <Link to='/allmentors'>Mentors</Link>
+                    </li>
+                  </ul>
+                </li>
+              )}
+
               <li className='dropdown'>
                 <Link to='/'>
                   <span>About</span> <i className='bi bi-chevron-down'></i>
@@ -47,23 +64,6 @@ const Header = () => {
                   </li>
                 </ul>
               </li>
-
-              {userInfo && (
-                <li className='dropdown'>
-                  <Link to='/'>
-                    <span>Browse More</span>{' '}
-                    <i className='bi bi-chevron-down'></i>
-                  </Link>
-                  <ul>
-                    <li>
-                      <Link to='/allmembers'>Members</Link>
-                    </li>
-                    <li>
-                      <Link to='/allmentors'>Mentors</Link>
-                    </li>
-                  </ul>
-                </li>
-              )}
 
               <li>
                 <Link to='/services'>Services</Link>

@@ -6,6 +6,7 @@ import morgan from 'morgan'
 import connectDB from './config/db.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import userRoutes from './routes/userRoutes.js'
+import startupRoutes from './routes/startupRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 
 dotenv.config()
@@ -21,6 +22,7 @@ if (process.env.NODE_ENV === 'developement') {
 app.use(express.json()) //allow to accept json data in body
 
 app.use('/api/users', userRoutes)
+app.use('/api/startup', startupRoutes)
 app.use('/api/upload', uploadRoutes)
 
 app.get('/api/config/paypal', (req, res) =>
@@ -50,6 +52,7 @@ const PORT = process.env.PORT || 5000
 app.listen(
   PORT,
   console.log(
-    `Server running in ${process.env.NODE_ENV} mode on Port ${PORT}`.yellow.underline.bold
+    `Server running in ${process.env.NODE_ENV} mode on Port ${PORT}`.yellow
+      .underline.bold
   )
 )

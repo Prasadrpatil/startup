@@ -30,6 +30,10 @@ const ProfileScreen = ({ history }) => {
     history.push('/editprofile')
   }
 
+  const addStartupHandler = () => {
+    history.push('/addstartup')
+  }
+
   return (
     <>
       <section id='breadcrumbs' className='breadcrumbs'>
@@ -91,7 +95,12 @@ const ProfileScreen = ({ history }) => {
                       Edit Profile
                     </Link>
                     {user.role === 'leader' && (
-                      <Link className='btn-get-started mt-2 '>Add StartUp</Link>
+                      <Link
+                        className='btn-get-started mt-2 '
+                        onClick={addStartupHandler}
+                      >
+                        Add StartUp
+                      </Link>
                     )}
                   </div>
                 </div>

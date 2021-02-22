@@ -41,7 +41,7 @@ const userSchema = mongoose.Schema(
     profileImage: {
       type: String,
     },
-    teamId: {
+    startupId: {
       type: Number,
     },
   },

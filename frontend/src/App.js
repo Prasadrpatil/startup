@@ -16,12 +16,14 @@ import AllMembersScreen from './screens/AllMembersScreen'
 import AllMentorsScreen from './screens/AllMentorsScreen'
 import MemberProfileScreen from './screens/MemberProfileScreen'
 import MentorProfileScreen from './screens/MentorProfileScreen'
+import AddStartupScreen from './screens/AddStartupScreen'
 
 function App() {
   return (
     <Router>
       <Header />
       <main className='py-3'>
+        <Route path='/addstartup' component={AddStartupScreen} />
         <Route path='/mentor/:mentorId' component={MentorProfileScreen} />
         <Route path='/member/:memberId' component={MemberProfileScreen} />
         <Route path='/allmentors' component={AllMentorsScreen} />
