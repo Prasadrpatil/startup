@@ -85,7 +85,12 @@ const getUserProfile = asycHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
-      isLeader: user.isLeader,
+      description: user.description,
+      expertise: user.expertise,
+      experience: user.experience,
+      toolKit1: user.toolKit1,
+      toolKit2: user.toolKit2,
+      toolKit3: user.toolKit3,
     })
   } else {
     res.status(401)
@@ -102,7 +107,12 @@ const updateUserProfile = asycHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
-    user.isLeader = req.body.isLeader || user.isLeader
+    user.description = req.body.description || user.description
+    user.expertise = req.body.expertise || user.expertise
+    user.experience = req.body.experience || user.experience
+    user.toolKit1 = req.body.toolKit1 || user.toolKit1
+    user.toolKit2 = req.body.toolKit2 || user.toolKit2
+    user.toolKit3 = req.body.toolKit3 || user.toolKit3
     if (req.body.password) {
       user.password = req.body.password
     }
@@ -113,7 +123,12 @@ const updateUserProfile = asycHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
-      isLeader: updatedUser.isLeader,
+      description: updatedUser.description,
+      expertise: updatedUser.expertise,
+      experience: updatedUser.experience,
+      toolKit1: updatedUser.toolKit1,
+      toolKit2: updatedUser.toolKit2,
+      toolKit3: updatedUser.toolKit3,
       token: generateToken(updatedUser._id),
     })
   } else {
@@ -167,6 +182,7 @@ const updateUser = asycHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
+
     if (req.body.role || req.body.role === false) {
       user.role = req.body.role
     }

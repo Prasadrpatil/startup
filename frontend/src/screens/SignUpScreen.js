@@ -62,7 +62,7 @@ const RegisterScreen = ({ history }) => {
                 {error && <Message variant='danger'>{error}</Message>}
                 {loading && <Loader />}
                 <div className='row'>
-                  <div className=' form-group mt-3 '>
+                  <div className=' form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-user m-2 icon' />
                       <strong>Name</strong>
@@ -77,7 +77,7 @@ const RegisterScreen = ({ history }) => {
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
-                  <div className=' form-group mt-3 '>
+                  <div className=' form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-envelope m-2 icon' />
                       <strong>E-mail</strong>
@@ -92,7 +92,7 @@ const RegisterScreen = ({ history }) => {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
-                  <div className=' form-group mt-3 '>
+                  <div className=' form-group mt-2 '>
                     <div className=' form-group'>
                       <i className='fas fa-users m-2 icon' />
                       <strong>Role</strong>
@@ -126,7 +126,7 @@ const RegisterScreen = ({ history }) => {
                       <label for='leader'>Team Leader</label>
                     </div>
                   </div>
-                  <div className='form-group mt-3'>
+                  <div className='form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-lock m-2 icon' />
                       <strong>Password</strong>
@@ -141,7 +141,7 @@ const RegisterScreen = ({ history }) => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <div className='form-group mt-3'>
+                  <div className='form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-lock m-2 icon' />
                       <strong>Confirm Password</strong>

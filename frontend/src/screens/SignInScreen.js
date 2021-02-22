@@ -51,7 +51,7 @@ const LoginScreen = ({ history }) => {
                 {error && <Message variant='danger'>{error}</Message>}
                 {loading && <Loader />}
                 <div className='row'>
-                  <div className=' form-group mt-3 '>
+                  <div className=' form-group mt-2 '>
                     <div className=' form-group'>
                       <i className='fas fa-envelope m-2 icon' />
                       <strong>E-mail</strong>
@@ -66,7 +66,7 @@ const LoginScreen = ({ history }) => {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
-                  <div className='form-group mt-3'>
+                  <div className='form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-lock m-2 icon' />
                       <strong>Password</strong>

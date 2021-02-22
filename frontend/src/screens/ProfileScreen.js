@@ -39,18 +39,6 @@ const ProfileScreen = ({ history }) => {
     history.push('/editprofile')
   }
 
-  const addStartupHandler = () => {
-    const isLeader = true
-    dispatch(
-      updateUserProfile({
-        id: user._id,
-        name,
-        email,
-        password,
-        isLeader: isLeader,
-      })
-    )
-  }
   return (
     <>
       <section id='breadcrumbs' className='breadcrumbs'>
@@ -80,7 +68,14 @@ const ProfileScreen = ({ history }) => {
 
                   <div className='section-title'>
                     <div className='member-info mt-2'>
-                      <h4>{user.name}</h4>
+                      <h4>{userInfo.name}</h4>
+                      {user.role === 'leader' ? (
+                        <span>Team Leader</span>
+                      ) : user.role === 'member' ? (
+                        <span>Team Member</span>
+                      ) : user.role === 'mentor' ? (
+                        <span>Mentor</span>
+                      ) : null}
                     </div>
                     <Link
                       className='btn-get-started mt-2 '
@@ -88,6 +83,9 @@ const ProfileScreen = ({ history }) => {
                     >
                       Edit Profile
                     </Link>
+                    {user.role === 'leader' && (
+                      <Link className='btn-get-started mt-2 '>Add StartUp</Link>
+                    )}
                   </div>
                 </div>
               </div>
@@ -95,16 +93,19 @@ const ProfileScreen = ({ history }) => {
 
             <div className='col-lg-8 pt-4 pt-lg-0' data-aos='fade-left'>
               <div className='container'>
+                <h3>Description: </h3>
+                <p>{user.description}</p>
+
+                <h3>Expertise: </h3>
+                <p>{user.expertise}</p>
+
                 <h3>Experience: </h3>
-                <div>
-                  10+ years of experience working with retailers, brands and
-                  agencies across digital marketing, e-commerce, brand, data &
-                  analytics, and product management. Huge passion for developing
-                  people and helping unlock their potential. Here to hopefully
-                  help, inspire and be inspired. Get in touch!
-                </div>
-                <br />
-                <h3>Technologies: </h3>
+                <p>{user.experience}</p>
+
+                <h3>Tool Kit: </h3>
+                {user.toolKit1 && <span className='tech'>{user.toolKit1}</span>}
+                {user.toolKit2 && <span className='tech'>{user.toolKit2}</span>}
+                {user.toolKit3 && <span className='tech'>{user.toolKit3}</span>}
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const teamSchema = mongoose.Schema(
+const projectSchema = mongoose.Schema(
   {
     mentor: {
       user: {
@@ -26,6 +26,6 @@ const teamSchema = mongoose.Schema(
   }
 )
 
-const Team = mongoose.model('Team', teamSchema)
+const Project = mongoose.model('Project', projectSchema)
 
-export default Team
+export default Project

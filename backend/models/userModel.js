@@ -16,6 +16,24 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
+    description: {
+      type: String,
+    },
+    expertise: {
+      type: String,
+    },
+    experience: {
+      type: String,
+    },
+    toolKit1: {
+      type: String,
+    },
+    toolKit2: {
+      type: String,
+    },
+    toolKit3: {
+      type: String,
+    },
     role: {
       type: String,
       required: true,

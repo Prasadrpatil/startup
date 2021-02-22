@@ -11,6 +11,12 @@ const EditProfileScreen = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
+  const [description, setDescription] = useState('')
+  const [expertise, setExpertise] = useState('')
+  const [experience, setExperience] = useState('')
+  const [toolKit1, setToolKit1] = useState('')
+  const [toolKit2, setToolKit2] = useState('')
+  const [toolKit3, setToolKit3] = useState('')
   const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
@@ -39,7 +45,20 @@ const EditProfileScreen = ({ history }) => {
     if (password !== confirmPassword) {
       setMessage('Passwords do not Match')
     } else {
-      dispatch(updateUserProfile({ id: user._id, name, email, password }))
+      dispatch(
+        updateUserProfile({
+          id: user._id,
+          name,
+          email,
+          password,
+          description,
+          expertise,
+          experience,
+          toolKit1,
+          toolKit2,
+          toolKit3,
+        })
+      )
     }
   }
 
@@ -75,7 +94,7 @@ const EditProfileScreen = ({ history }) => {
                 {error && <Message variant='danger'>{error}</Message>}
                 {loading && <Loader />}
                 <div className='row'>
-                  <div className=' form-group mt-3 '>
+                  <div className=' form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-user m-2 icon' />
                       <strong>Name</strong>
@@ -90,7 +109,8 @@ const EditProfileScreen = ({ history }) => {
                       onChange={(e) => setName(e.target.value)}
                     />
                   </div>
-                  <div className=' form-group mt-3 '>
+
+                  <div className=' form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-envelope m-2 icon' />
                       <strong>E-mail</strong>
@@ -105,7 +125,7 @@ const EditProfileScreen = ({ history }) => {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
-                  <div className='form-group mt-3'>
+                  <div className='form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-lock m-2 icon' />
                       <strong>Password</strong>
@@ -119,7 +139,8 @@ const EditProfileScreen = ({ history }) => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <div className='form-group mt-3'>
+
+                  <div className='form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-lock m-2 icon' />
                       <strong>Confirm Password</strong>
@@ -131,6 +152,96 @@ const EditProfileScreen = ({ history }) => {
                       placeholder='Confirm Password'
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='form-group mt-2'>
+                    <div className=' form-group'>
+                      <i className='fas fa-keyboard m-2 icon' />
+                      <strong>Description</strong>
+                    </div>
+                    <input
+                      type='text'
+                      name='description'
+                      className='form-control'
+                      placeholder='Enter Description'
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='form-group mt-2'>
+                    <div className=' form-group'>
+                      <i className='fas fa-keyboard m-2 icon' />
+                      <strong>Expertise</strong>
+                    </div>
+                    <input
+                      type='text'
+                      name='expertise'
+                      className='form-control'
+                      placeholder='Enter Expertise'
+                      value={expertise}
+                      onChange={(e) => setExpertise(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='form-group mt-2'>
+                    <div className=' form-group'>
+                      <i className='fas fa-keyboard m-2 icon' />
+                      <strong>Experience</strong>
+                    </div>
+                    <input
+                      type='text'
+                      name='experience'
+                      className='form-control'
+                      placeholder='Enter Experience'
+                      value={experience}
+                      onChange={(e) => setExperience(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='form-group mt-2'>
+                    <div className=' form-group'>
+                      <i className='fas fa-keyboard m-2 icon' />
+                      <strong>Tool Kit 1</strong>
+                    </div>
+                    <input
+                      type='text'
+                      name='toolKit1'
+                      className='form-control'
+                      placeholder='Enter Tool Kit 1'
+                      value={toolKit1}
+                      onChange={(e) => setToolKit1(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='form-group mt-2'>
+                    <div className=' form-group'>
+                      <i className='fas fa-keyboard m-2 icon' />
+                      <strong>Tool Kit 2</strong>
+                    </div>
+                    <input
+                      type='text'
+                      name='toolKit2'
+                      className='form-control'
+                      placeholder='Enter Tool Kit 2'
+                      value={toolKit2}
+                      onChange={(e) => setToolKit2(e.target.value)}
+                    />
+                  </div>
+
+                  <div className='form-group mt-2'>
+                    <div className=' form-group'>
+                      <i className='fas fa-keyboard m-2 icon' />
+                      <strong>Tool Kit 3</strong>
+                    </div>
+                    <input
+                      type='text'
+                      name='toolKit3'
+                      className='form-control'
+                      placeholder='Enter Tool Kit 3'
+                      value={toolKit3}
+                      onChange={(e) => setToolKit3(e.target.value)}
                     />
                   </div>
                 </div>
