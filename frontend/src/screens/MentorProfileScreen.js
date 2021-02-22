@@ -6,7 +6,7 @@ import Loader from '../components/Loader'
 import { getUserDetails } from '../actions/userActions'
 
 const MentorProfileScreen = ({ history, match }) => {
-  const userId = match.params.id
+  const userId = match.params.mentorId
 
   const dispatch = useDispatch()
 

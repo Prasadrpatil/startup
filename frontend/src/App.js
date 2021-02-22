@@ -22,8 +22,8 @@ function App() {
     <Router>
       <Header />
       <main className='py-3'>
-        <Route path='/mentor/:id' component={MentorProfileScreen} />
-        <Route path='/member/:id' component={MemberProfileScreen} />
+        <Route path='/mentor/:mentorId' component={MentorProfileScreen} />
+        <Route path='/member/:memberId' component={MemberProfileScreen} />
         <Route path='/allmentors' component={AllMentorsScreen} />
         <Route path='/allmembers' component={AllMembersScreen} />
         <Route path='/editprofile' component={EditProfileScreen} />

@@ -16,11 +16,6 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    isLeader: {
-      type: Boolean,
-      required: true,
-      default: false,
-    },
     role: {
       type: String,
       required: true,

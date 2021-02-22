@@ -6,7 +6,7 @@ import Loader from '../components/Loader'
 import { getUserDetails } from '../actions/userActions'
 
 const MemberProfileScreen = ({ history, match }) => {
-  const userId = match.params.id
+  const userId = match.params.memberId
 
   const dispatch = useDispatch()
 

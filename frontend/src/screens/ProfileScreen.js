@@ -94,34 +94,18 @@ const ProfileScreen = ({ history }) => {
             </div>
 
             <div className='col-lg-8 pt-4 pt-lg-0' data-aos='fade-left'>
-              {user.isLeader ? (
-                <button className='buttonAny m-3'>Overview</button>
-              ) : user.role === 'mentor' ? (
-                <button className='buttonAny m-3'>Overview</button>
-              ) : user.role === 'member' ? (
-                <>
-                  <button className='buttonAny m-3' onClick={addStartupHandler}>
-                    Add StartUp
-                  </button>
-                  <div className='section-title'>
-                    <h3>Overview</h3>
-                  </div>
-                </>
-              ) : null}
-              <>
-                <div className='container'>
-                  <h3>Experience: </h3>
-                  <div>
-                    10+ years of experience working with retailers, brands and
-                    agencies across digital marketing, e-commerce, brand, data &
-                    analytics, and product management. Huge passion for
-                    developing people and helping unlock their potential. Here
-                    to hopefully help, inspire and be inspired. Get in touch!
-                  </div>
-                  <br />
-                  <h3>Technologies: </h3>
+              <div className='container'>
+                <h3>Experience: </h3>
+                <div>
+                  10+ years of experience working with retailers, brands and
+                  agencies across digital marketing, e-commerce, brand, data &
+                  analytics, and product management. Huge passion for developing
+                  people and helping unlock their potential. Here to hopefully
+                  help, inspire and be inspired. Get in touch!
                 </div>
-              </>
+                <br />
+                <h3>Technologies: </h3>
+              </div>
             </div>
           </div>
         </div>

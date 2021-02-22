@@ -114,7 +114,16 @@ const RegisterScreen = ({ history }) => {
                         value='member'
                         onChange={(e) => setRole(e.target.value)}
                       />
-                      <label for='member'>Member</label>
+                      <label for='member'>Team Member</label>
+
+                      <input
+                        type='radio'
+                        id='leader'
+                        name='role'
+                        value='leader'
+                        onChange={(e) => setRole(e.target.value)}
+                      />
+                      <label for='leader'>Team Leader</label>
                     </div>
                   </div>
                   <div className='form-group mt-3'>
