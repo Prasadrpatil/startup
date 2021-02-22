@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { Image } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserDetails, updateUserProfile } from '../actions/userActions'
+import { getUserDetails } from '../actions/userActions'
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 
 const ProfileScreen = ({ history }) => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
-  const [message, setMessage] = useState(null)
-
   const dispatch = useDispatch()
 
   const userDetails = useSelector((state) => state.userDetails)
@@ -29,9 +23,6 @@ const ProfileScreen = ({ history }) => {
     if (!user || !user.name || success) {
       dispatch({ type: USER_UPDATE_PROFILE_RESET })
       dispatch(getUserDetails('profile'))
-    } else {
-      setName(user.name)
-      setEmail(user.email)
     }
   }, [dispatch, history, userInfo, user, success])
 
@@ -56,7 +47,6 @@ const ProfileScreen = ({ history }) => {
       </section>
 
       <section id='about-us' className='about-us'>
-        {message && <Message variant='danger'>{message}</Message>}
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <div className='container' data-aos='fade-up'>
@@ -69,6 +59,7 @@ const ProfileScreen = ({ history }) => {
                   <div className='section-title'>
                     <div className='member-info mt-2'>
                       <h4>{userInfo.name}</h4>
+
                       {user.role === 'leader' ? (
                         <span>Team Leader</span>
                       ) : user.role === 'member' ? (
@@ -76,11 +67,27 @@ const ProfileScreen = ({ history }) => {
                       ) : user.role === 'mentor' ? (
                         <span>Mentor</span>
                       ) : null}
+
+                      <div className='social-links text-center text-md-right pt-3 mt-3 pt-md-0'>
+                        <Link to='/profile' className='twitter'>
+                          <i className='bx bxl-twitter'></i>
+                        </Link>
+                        <Link to='/profile' className='facebook'>
+                          <i className='bx bxl-facebook'></i>
+                        </Link>
+                        <Link to='/profile' className='instagram'>
+                          <i className='bx bxl-instagram'></i>
+                        </Link>
+                        <Link to='/profile' className='google-plus'>
+                          <i className='bx bxl-skype'></i>
+                        </Link>
+                        <Link to='/profile' className='linkedin'>
+                          <i className='bx bxl-linkedin'></i>
+                        </Link>
+                      </div>
+                      <br />
                     </div>
-                    <Link
-                      className='btn-get-started mt-2 '
-                      onClick={editHandler}
-                    >
+                    <Link className='btn-get-started  ' onClick={editHandler}>
                       Edit Profile
                     </Link>
                     {user.role === 'leader' && (

@@ -2342,3 +2342,25 @@ section {
   color: #fff;
   text-decoration: none;
 }
+
+.social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.08);
+  background-color:black;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 4px;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background: #1bbd36;
+  color: #fff;
+  text-decoration: none;
+}

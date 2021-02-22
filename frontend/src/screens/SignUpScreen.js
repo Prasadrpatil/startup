@@ -11,7 +11,6 @@ const RegisterScreen = ({ history }) => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [role, setRole] = useState('')
-  const [message, setMessage] = useState(null)
 
   const dispatch = useDispatch()
 
@@ -58,7 +57,6 @@ const RegisterScreen = ({ history }) => {
           <div className='row justify-content-center'>
             <div className='col-lg-7'>
               <form className='php-email-form' onSubmit={submitHandler}>
-                {message && <Message variant='danger'>{message}</Message>}
                 {error && <Message variant='danger'>{error}</Message>}
                 {loading && <Loader />}
                 <div className='row'>

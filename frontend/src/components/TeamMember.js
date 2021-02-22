@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 const User = ({ user, actualUserId }) => {
   return (
     <>
-      {user._id != actualUserId &&
+      {user._id !== actualUserId &&
         (user.role === 'member' || user.role === 'leader') && (
           <div className='col-lg-3 col-md-6 d-flex align-items-stretch'>
             <div className='member' data-aos='fade-up'>

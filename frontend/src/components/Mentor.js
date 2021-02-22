@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Mentor = ({ user, actualUserId }) => {
   return (
     <>
-      {user._id != actualUserId && user.role === 'mentor' && (
+      {user._id !== actualUserId && user.role === 'mentor' && (
         <div className='col-lg-3 col-md-6 d-flex align-items-stretch'>
           <div className='member' data-aos='fade-up'>
             <div className='member-img'>

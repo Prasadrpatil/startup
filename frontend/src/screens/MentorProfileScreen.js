@@ -22,7 +22,7 @@ const MentorProfileScreen = ({ history, match }) => {
     } else {
       history.push('/login')
     }
-  }, [])
+  }, [dispatch, history, userInfo, userId])
   return (
     <>
       {/* <!-- ======= Breadcrumbs ======= --> */}

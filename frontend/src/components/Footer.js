@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
@@ -28,13 +28,16 @@ const Footer = () => {
                 <h4>Useful Links</h4>
                 <ul>
                   <li>
-                    <i className='bx bx-chevron-right'></i> <Link to='/'>Home</Link>
+                    <i className='bx bx-chevron-right'></i>{' '}
+                    <Link to='/'>Home</Link>
                   </li>
                   <li>
-                    <i className='bx bx-chevron-right'></i> <Link to='/'>About us</Link>
+                    <i className='bx bx-chevron-right'></i>{' '}
+                    <Link to='/'>About us</Link>
                   </li>
                   <li>
-                    <i className='bx bx-chevron-right'></i> <Link to='/'>Services</Link>
+                    <i className='bx bx-chevron-right'></i>{' '}
+                    <Link to='/'>Services</Link>
                   </li>
                   <li>
                     <i className='bx bx-chevron-right'></i>
@@ -79,7 +82,7 @@ const Footer = () => {
                   Tamen quem nulla quae legam multos aute sint culpa legam
                   noster magna
                 </p>
-                <form >
+                <form>
                   <input type='email' name='email' />
                   <input type='button' value='Subscribe' />
                 </form>
