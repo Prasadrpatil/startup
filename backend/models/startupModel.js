@@ -7,16 +7,10 @@ const startupSchema = mongoose.Schema(
     platform: { type: String, required: true },
     specification: { type: String, required: true },
     type: { type: String, required: true },
-    team: [
-      {
-        user: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: 'User',
-          required: true,
-        },
-      },
-    ],
-  },
+    team: {
+      type: Array,
+      default: [],
+    },
   {
     timestamps: true,
   }
