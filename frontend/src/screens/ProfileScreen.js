@@ -94,7 +94,7 @@ const ProfileScreen = ({ history }) => {
                     <Link className='btn-get-started  ' onClick={editHandler}>
                       Edit Profile
                     </Link>
-                    {user.role === 'leader' && (
+                    {user.role === 'leader' && user.startupId === null && (
                       <Link
                         className='btn-get-started mt-2 '
                         onClick={addStartupHandler}

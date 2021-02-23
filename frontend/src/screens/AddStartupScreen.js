@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { createStartup } from '../actions/startupActions'
-import { updateUserProfile } from '../actions/userActions'
+import { updateUser, updateUserProfile } from '../actions/userActions'
 
 const EditStartupScreen = ({ history }) => {
+  var startupId = null
+
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
   const [platform, setPlatform] = useState('')
@@ -19,13 +21,20 @@ const EditStartupScreen = ({ history }) => {
   const { userInfo } = userLogin
 
   const startupCreate = useSelector((state) => state.startupCreate)
-  const { loading, error, success } = startupCreate
+  const { loading, error, success: startupSuccess, startup } = startupCreate
+
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+  const { success } = userUpdateProfile
 
   useEffect(() => {
+    if (startupSuccess) {
+      startupId = startup._id
+      dispatch(updateUserProfile({ id: userInfo._id, startupId }))
+    }
     if (success) {
       history.push('/profile')
     }
-  }, [success])
+  }, [success, startupSuccess])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -33,6 +42,7 @@ const EditStartupScreen = ({ history }) => {
       createStartup({ name, description, platform, specification, type })
     )
   }
+
   return (
     <>
       <section id='breadcrumbs' className='breadcrumbs'>

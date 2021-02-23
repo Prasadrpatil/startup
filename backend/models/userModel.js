@@ -42,7 +42,8 @@ const userSchema = mongoose.Schema(
       type: String,
     },
     startupId: {
-      type: Number,
+      type: String,
+      default: null,
     },
   },
   {

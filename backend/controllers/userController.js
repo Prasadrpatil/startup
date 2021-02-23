@@ -91,6 +91,7 @@ const getUserProfile = asycHandler(async (req, res) => {
       toolKit1: user.toolKit1,
       toolKit2: user.toolKit2,
       toolKit3: user.toolKit3,
+      startupId: user.startupId,
     })
   } else {
     res.status(401)
@@ -113,6 +114,7 @@ const updateUserProfile = asycHandler(async (req, res) => {
     user.toolKit1 = req.body.toolKit1 || user.toolKit1
     user.toolKit2 = req.body.toolKit2 || user.toolKit2
     user.toolKit3 = req.body.toolKit3 || user.toolKit3
+    user.startupId = req.body.startupId
     if (req.body.password) {
       user.password = req.body.password
     }
@@ -129,6 +131,8 @@ const updateUserProfile = asycHandler(async (req, res) => {
       toolKit1: updatedUser.toolKit1,
       toolKit2: updatedUser.toolKit2,
       toolKit3: updatedUser.toolKit3,
+      startupId: updatedUser.startupId,
+
       token: generateToken(updatedUser._id),
     })
   } else {
@@ -180,19 +184,13 @@ const updateUser = asycHandler(async (req, res) => {
   const user = await User.findById(req.params.id)
 
   if (user) {
-    user.name = req.body.name || user.name
-    user.email = req.body.email || user.email
+    user.startupId = req.body.startupId || user.startupId
 
-    if (req.body.role || req.body.role === false) {
-      user.role = req.body.role
-    }
     const updatedUser = await user.save()
 
     res.json({
       _id: updatedUser._id,
-      name: updatedUser.name,
-      email: updatedUser.email,
-      role: updatedUser.role,
+      startupId: updatedUser.startupId,
     })
   } else {
     res.status(401)
