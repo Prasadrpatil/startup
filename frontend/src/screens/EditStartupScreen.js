@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-import { createStartup } from '../actions/startupActions'
-import { getUserDetails, updateUserProfile } from '../actions/userActions'
-import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
+import { listStartupDetails, updateStartup } from '../actions/startupActions'
+import { STARTUP_UPDATE_RESET } from '../constants/startupConstants'
 
-const AddStartupScreen = ({ history }) => {
-  var startupId = null
+const EditStartupScreen = ({ match }) => {
+  const startupId = match.params.startupId
 
   const [name, setName] = useState('')
+  const [message, setMessage] = useState('')
   const [description, setDescription] = useState('')
   const [platform, setPlatform] = useState('')
   const [specification, setSpecification] = useState('')
@@ -18,36 +18,38 @@ const AddStartupScreen = ({ history }) => {
 
   const dispatch = useDispatch()
 
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
+  const startupDetails = useSelector((state) => state.startupDetails)
+  const {  startup } = startupDetails
 
-  const userDetails = useSelector((state) => state.userDetails)
-  const { user } = userDetails
-
-  const startupCreate = useSelector((state) => state.startupCreate)
-  const { loading, error, success: startupSuccess, startup } = startupCreate
-
-  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
-  const { success } = userUpdateProfile
+  const startupUpdate = useSelector((state) => state.startupUpdate)
+  const { loading, error,success } = startupUpdate
 
   useEffect(() => {
-    if (!user || !user.name) {
-      dispatch({ type: USER_UPDATE_PROFILE_RESET })
-      dispatch(getUserDetails('profile'))
-    }
-    if (startupSuccess) {
-      startupId = startup._id
-      dispatch(updateUserProfile({ id: userInfo._id, startupId }))
+    if (!startup || !startup.name || !startup.description || success) {
+      dispatch({ type: STARTUP_UPDATE_RESET })
+      dispatch(listStartupDetails(startupId))
+    } else {
+      setName(startup.name)
+      setDescription(startup.description)
+      setPlatform(startup.platform)
+      setSpecification(startup.specification)
     }
     if (success) {
-      history.push('/profile')
+      setMessage('StartUp Updated Sucessfully...')
     }
-  }, [success, startupSuccess])
+  }, [dispatch, startup, success, startupId])
 
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
-      createStartup({ name, description, platform, specification, type, user })
+      updateStartup({
+        _id: startupId,
+        name,
+        description,
+        platform,
+        specification,
+        type,
+      })
     )
   }
 
@@ -69,7 +71,7 @@ const AddStartupScreen = ({ history }) => {
 
       <section id='contact' className='contact' data-aos='fade-up'>
         <div className='section-title'>
-          <h2>Add StartUp</h2>
+          <h2>Edit StartUp</h2>
         </div>
 
         <div className='container'>
@@ -77,6 +79,7 @@ const AddStartupScreen = ({ history }) => {
             <div className='col-lg-7'>
               <form className='php-email-form' onSubmit={submitHandler}>
                 {error && <Message variant='danger'>{error}</Message>}
+                {<Message>{message}</Message>}
                 {loading && <Loader />}
                 <div className='row'>
                   <div className=' form-group mt-2'>
@@ -168,7 +171,7 @@ const AddStartupScreen = ({ history }) => {
                 </div>
 
                 <div className='text-center my-3'>
-                  <button type='submit'>Add StartUp</button>
+                  <button type='submit'>Update StartUp</button>
                 </div>
               </form>
             </div>
@@ -179,4 +182,4 @@ const AddStartupScreen = ({ history }) => {
   )
 }
 
-export default AddStartupScreen
+export default EditStartupScreen

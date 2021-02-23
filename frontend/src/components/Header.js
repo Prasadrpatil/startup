@@ -126,8 +126,3 @@ const Header = () => {
 
 export default Header
 
-/* <div className='box'>
-<div className='btn-wrap '>
-  <Link to='/signin'>Sign-In</Link>
-</div>
-</div> */

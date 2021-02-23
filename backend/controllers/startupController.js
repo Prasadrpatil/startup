@@ -50,8 +50,10 @@ const updateStartup = asycHandler(async (req, res) => {
     startup.description = description
     startup.platform = platform
     startup.specification = specification
-    startup.type = type
-    startup.team = [...user]
+    startup.type = type || startup.type
+    if (user) {
+      startup.team = [user]
+    }
 
     const updatedStartup = await startup.save()
     res.status(201).json(updatedStartup)

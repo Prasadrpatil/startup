@@ -12,9 +12,12 @@ const StartupScreen = ({ match, history }) => {
   const startupDetails = useSelector((state) => state.startupDetails)
   const { loading, error, startup } = startupDetails
 
+  const userDetails = useSelector((state) => state.userDetails)
+  const { user } = userDetails
+
   useEffect(() => {
     dispatch(listStartupDetails(startupId))
-  }, [dispatch, match])
+  }, [dispatch, match, startupId])
   return (
     <>
       <section id='breadcrumbs' className='breadcrumbs'>
@@ -40,6 +43,15 @@ const StartupScreen = ({ match, history }) => {
               <div className='section-title' data-aos='fade-up'>
                 <h2>StartUp</h2>
               </div>
+
+              {user.role === 'leader' && (
+                <Link
+                  to={`/editstartup/${startup?._id}`}
+                  className='btn-get-started'
+                >
+                  Edit StartUp
+                </Link>
+              )}
 
               <div className='row'>
                 {startup && (
