@@ -25,7 +25,7 @@ const deleteStartup = asycHandler(async (req, res) => {
 })
 
 const createStartup = asycHandler(async (req, res) => {
-  const { name, description, platform, specification, type } = req.body
+  const { name, description, platform, specification, type, user } = req.body
 
   const startup = new Startup({
     name: name,
@@ -33,6 +33,7 @@ const createStartup = asycHandler(async (req, res) => {
     platform: platform,
     specification: specification,
     type: type,
+    team: [user],
   })
 
   const createdStartup = await startup.save()
@@ -40,7 +41,7 @@ const createStartup = asycHandler(async (req, res) => {
 })
 
 const updateStartup = asycHandler(async (req, res) => {
-  const { name, description, platform, specification, type } = req.body
+  const { name, description, platform, specification, type, user } = req.body
 
   const startup = await Startup.findById(req.params.id)
 
@@ -50,6 +51,7 @@ const updateStartup = asycHandler(async (req, res) => {
     startup.platform = platform
     startup.specification = specification
     startup.type = type
+    startup.team = [...user]
 
     const updatedStartup = await startup.save()
     res.status(201).json(updatedStartup)

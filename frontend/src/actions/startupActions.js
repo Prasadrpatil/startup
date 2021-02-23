@@ -73,6 +73,7 @@ export const createStartup = ({
   platform,
   specification,
   type,
+  user,
 }) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -92,7 +93,7 @@ export const createStartup = ({
 
     const { data } = await axios.post(
       `/api/startup/`,
-      { name, description, platform, specification, type },
+      { name, description, platform, specification, type, user },
       config
     )
 

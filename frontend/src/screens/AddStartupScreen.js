@@ -4,7 +4,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { createStartup } from '../actions/startupActions'
-import { updateUser, updateUserProfile } from '../actions/userActions'
+import {
+  getUserDetails,
+  updateUser,
+  updateUserProfile,
+} from '../actions/userActions'
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 
 const EditStartupScreen = ({ history }) => {
   var startupId = null
@@ -20,6 +25,9 @@ const EditStartupScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const userDetails = useSelector((state) => state.userDetails)
+  const { user } = userDetails
+
   const startupCreate = useSelector((state) => state.startupCreate)
   const { loading, error, success: startupSuccess, startup } = startupCreate
 
@@ -27,6 +35,10 @@ const EditStartupScreen = ({ history }) => {
   const { success } = userUpdateProfile
 
   useEffect(() => {
+    if (!user || !user.name) {
+      dispatch({ type: USER_UPDATE_PROFILE_RESET })
+      dispatch(getUserDetails('profile'))
+    }
     if (startupSuccess) {
       startupId = startup._id
       dispatch(updateUserProfile({ id: userInfo._id, startupId }))
@@ -39,7 +51,7 @@ const EditStartupScreen = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(
-      createStartup({ name, description, platform, specification, type })
+      createStartup({ name, description, platform, specification, type, user })
     )
   }
 
