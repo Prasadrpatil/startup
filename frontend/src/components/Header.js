@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { logout } from '../actions/userActions'
+import { logout, getUserDetails } from '../actions/userActions'
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -9,9 +10,19 @@ const Header = () => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const userDetails = useSelector((state) => state.userDetails)
+  const { user } = userDetails
+
   const logoutHandler = () => {
     dispatch(logout())
   }
+
+  useEffect(() => {
+    if (!user || !user.name) {
+      dispatch({ type: USER_UPDATE_PROFILE_RESET })
+      dispatch(getUserDetails('profile'))
+    }
+  }, [dispatch, userInfo, user])
   return (
     <>
       {/* <!-- ======= Header ======= --> */}
@@ -83,6 +94,15 @@ const Header = () => {
                     <li>
                       <Link to='/profile'>Profile</Link>
                     </li>
+                    {user?.startupId && (
+                      <>
+                        <li>
+                          <Link to={`/startup/${user?.startupId}`}>
+                            StartUp
+                          </Link>
+                        </li>
+                      </>
+                    )}
                     <li>
                       <Link to='/' onClick={logoutHandler}>
                         Logout

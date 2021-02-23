@@ -58,17 +58,23 @@ const ProfileScreen = ({ history }) => {
             <div className='col-lg-4' data-aos='fade-right'>
               <div className='row '>
                 <div className='col-lg-9'>
-                  <Image src='assets/img/team/team-1.jpg' roundedCircle fluid />
+                  <div className='section-title'>
+                    <Image
+                      src='assets/img/team/team-1.jpg'
+                      roundedCircle
+                      fluid
+                    />
+                  </div>
 
                   <div className='section-title'>
                     <div className='member-info mt-2'>
-                      <h4>{userInfo.name}</h4>
+                      <h4>{userInfo?.name}</h4>
 
-                      {user.role === 'leader' ? (
+                      {user?.role === 'leader' ? (
                         <span>Team Leader</span>
-                      ) : user.role === 'member' ? (
+                      ) : user?.role === 'member' ? (
                         <span>Team Member</span>
-                      ) : user.role === 'mentor' ? (
+                      ) : user?.role === 'mentor' ? (
                         <span>Mentor</span>
                       ) : null}
 
@@ -94,7 +100,7 @@ const ProfileScreen = ({ history }) => {
                     <Link className='btn-get-started  ' onClick={editHandler}>
                       Edit Profile
                     </Link>
-                    {user.role === 'leader' && user.startupId === null && (
+                    {user?.role === 'leader' && user?.startupId === null && (
                       <Link
                         className='btn-get-started mt-2 '
                         onClick={addStartupHandler}
@@ -110,18 +116,24 @@ const ProfileScreen = ({ history }) => {
             <div className='col-lg-8 pt-4 pt-lg-0' data-aos='fade-left'>
               <div className='container'>
                 <h3>Description: </h3>
-                <p>{user.description}</p>
+                <p>{user?.description}</p>
 
                 <h3>Expertise: </h3>
-                <p>{user.expertise}</p>
+                <p>{user?.expertise}</p>
 
                 <h3>Experience: </h3>
-                <p>{user.experience}</p>
+                <p>{user?.experience}</p>
 
                 <h3>Tool Kit: </h3>
-                {user.toolKit1 && <span className='tech'>{user.toolKit1}</span>}
-                {user.toolKit2 && <span className='tech'>{user.toolKit2}</span>}
-                {user.toolKit3 && <span className='tech'>{user.toolKit3}</span>}
+                {user?.toolKit1 && (
+                  <span className='tech'>{user.toolKit1}</span>
+                )}
+                {user?.toolKit2 && (
+                  <span className='tech'>{user.toolKit2}</span>
+                )}
+                {user?.toolKit3 && (
+                  <span className='tech'>{user.toolKit3}</span>
+                )}
               </div>
             </div>
           </div>

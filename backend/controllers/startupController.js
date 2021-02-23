@@ -2,13 +2,13 @@ import Startup from '../models/startupModel.js'
 import asycHandler from 'express-async-handler'
 
 const getStartupById = asycHandler(async (req, res) => {
-  const product = await Product.findById(req.params.id)
+  const startup = await Startup.findById(req.params.id)
 
-  if (product) {
-    res.json(product)
+  if (startup) {
+    res.json(startup)
   } else {
     res.status(404)
-    throw new Error('Product Not Found')
+    throw new Error('Startup Not Found')
   }
 })
 
