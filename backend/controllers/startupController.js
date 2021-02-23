@@ -52,7 +52,16 @@ const updateStartup = asycHandler(async (req, res) => {
     startup.specification = specification
     startup.type = type || startup.type
     if (user) {
-      startup.team = [user]
+      Startup.collection.update(
+        {
+          _id: startup._id,
+        },
+        {
+          $push: {
+            team: user,
+          },
+        }
+      )
     }
 
     const updatedStartup = await startup.save()

@@ -5,6 +5,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { listStartupDetails, updateStartup } from '../actions/startupActions'
 import { STARTUP_UPDATE_RESET } from '../constants/startupConstants'
+// import { getUserDetails } from '../actions/userActions'
 
 const EditStartupScreen = ({ match }) => {
   const startupId = match.params.startupId
@@ -19,10 +20,19 @@ const EditStartupScreen = ({ match }) => {
   const dispatch = useDispatch()
 
   const startupDetails = useSelector((state) => state.startupDetails)
-  const {  startup } = startupDetails
+  const { startup } = startupDetails
 
   const startupUpdate = useSelector((state) => state.startupUpdate)
-  const { loading, error,success } = startupUpdate
+  const { loading, error, success } = startupUpdate
+
+  // const userDetails = useSelector((state) => state.userDetails)
+  // const { user } = userDetails
+
+  // useEffect(() => {
+  //   if (!user || !user.name) {
+  //     dispatch(getUserDetails('profile'))
+  //   }
+  // }, [dispatch, user])
 
   useEffect(() => {
     if (!startup || !startup.name || !startup.description || success) {
@@ -49,6 +59,7 @@ const EditStartupScreen = ({ match }) => {
         platform,
         specification,
         type,
+        // user,
       })
     )
   }
