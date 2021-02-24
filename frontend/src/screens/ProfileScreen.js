@@ -135,6 +135,7 @@ const ProfileScreen = ({ history }) => {
           </div>
         </div>
       </section>
+    
     </>
   )
 }
