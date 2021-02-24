@@ -52,11 +52,13 @@ const registerUser = asycHandler(async (req, res) => {
     throw new Error('Passwords do not Match...')
   }
 
+  var image = '/assets/profile.png'
   const user = await User.create({
     name,
     email,
     password,
     role,
+    image,
   })
 
   if (user) {
@@ -65,6 +67,7 @@ const registerUser = asycHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
+      image: user.image,
       token: generateToken(user._id),
     })
   } else {
@@ -85,6 +88,7 @@ const getUserProfile = asycHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
+      image: user.image,
       description: user.description,
       expertise: user.expertise,
       experience: user.experience,

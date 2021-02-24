@@ -59,11 +59,7 @@ const ProfileScreen = ({ history }) => {
               <div className='row '>
                 <div className='col-lg-9'>
                   <div className='section-title'>
-                    <Image
-                      src='assets/img/team/team-1.jpg'
-                      roundedCircle
-                      fluid
-                    />
+                    <Image src={user?.image} roundedCircle fluid />
                   </div>
 
                   <div className='section-title'>

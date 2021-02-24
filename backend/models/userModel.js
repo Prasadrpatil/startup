@@ -38,7 +38,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    profileImage: {
+    image: {
       type: String,
     },
     startupId: {

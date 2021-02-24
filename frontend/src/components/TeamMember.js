@@ -10,11 +10,7 @@ const User = ({ user, actualUserId }) => {
             <div className='member' data-aos='fade-up'>
               <div className='member-img'>
                 <Link to={`/member/${user._id}`}>
-                  <img
-                    src='assets/img/team/team-1.jpg'
-                    className='img-fluid'
-                    alt=''
-                  />
+                  <img src={user?.image} className='img-fluid' alt='' />
                 </Link>
 
                 <div className='social'>
