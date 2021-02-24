@@ -118,7 +118,7 @@ const updateUserProfile = asycHandler(async (req, res) => {
     user.toolKit1 = req.body.toolKit1 || user.toolKit1
     user.toolKit2 = req.body.toolKit2 || user.toolKit2
     user.toolKit3 = req.body.toolKit3 || user.toolKit3
-    user.startupId = req.body.startupId
+    user.startupId = req.body.startupId || user.startupId
     if (req.body.password) {
       user.password = req.body.password
     }
