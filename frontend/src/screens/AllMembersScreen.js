@@ -53,7 +53,11 @@ const AllMembersScreen = ({ history }) => {
           <div className='row'>
             {users &&
               users.map((user) => (
-                <TeamMember user={user} actualUserId={actualUserId} />
+                <TeamMember
+                  key={user._id}
+                  user={user}
+                  actualUserId={actualUserId}
+                />
               ))}
           </div>
         </div>

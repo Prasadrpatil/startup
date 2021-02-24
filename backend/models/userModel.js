@@ -45,6 +45,13 @@ const userSchema = mongoose.Schema(
       type: String,
       default: null,
     },
+    requestId: {
+      type: String,
+      default: null,
+    },
+    requestMessage: {
+      type: String,
+    },
   },
   {
     timestamps: true,

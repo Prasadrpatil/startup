@@ -16,7 +16,6 @@ const authUser = asycHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
-      isLeader: user.isLeader,
       token: generateToken(user._id),
     })
   } else {
@@ -189,12 +188,16 @@ const updateUser = asycHandler(async (req, res) => {
 
   if (user) {
     user.startupId = req.body.startupId || user.startupId
+    user.requestId = req.body.requestId || user.requestId
+    user.requestMessage = req.body.requestMessage || user.requestMessage
 
     const updatedUser = await user.save()
 
     res.json({
       _id: updatedUser._id,
       startupId: updatedUser.startupId,
+      requestId: updatedUser.requestId,
+      requestMessage: updatedUser.requestMessage,
     })
   } else {
     res.status(401)

@@ -6,7 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Member from '../components/Member'
 
-const StartupScreen = ({ match, history }) => {
+const StartupScreen = ({ match }) => {
   const startupId = match.params.startupId
   const dispatch = useDispatch()
 
