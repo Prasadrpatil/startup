@@ -85,7 +85,8 @@ const StartupScreen = ({ match }) => {
           </div>
 
           <div className='row'>
-            {startup.team && startup.team.map((user) => <Member user={user} />)}
+            {startup.team &&
+              startup.team.map((user) => <Member key={user._id} user={user} />)}
           </div>
         </div>
       </section>

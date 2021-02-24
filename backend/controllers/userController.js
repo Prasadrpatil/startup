@@ -95,6 +95,8 @@ const getUserProfile = asycHandler(async (req, res) => {
       toolKit2: user.toolKit2,
       toolKit3: user.toolKit3,
       startupId: user.startupId,
+      requestId: user.requestId,
+      requestMessage: user.requestMessage,
     })
   } else {
     res.status(401)

@@ -94,7 +94,7 @@ const Header = () => {
                     <li>
                       <Link to='/profile'>Profile</Link>
                     </li>
-                    {user?.startupId && (
+                    {user?.startupId ? (
                       <>
                         <li>
                           <Link to={`/startup/${user?.startupId}`}>
@@ -102,11 +102,17 @@ const Header = () => {
                           </Link>
                         </li>
                       </>
+                    ) : (
+                      user?.requestId && (
+                        <>
+                          <li>
+                            <Link to='/requests'>Requests</Link>
+                          </li>
+                        </>
+                      )
                     )}
                     <li>
-                      <Link to='/' onClick={logoutHandler}>
-                        Logout
-                      </Link>
+                      <Link onClick={logoutHandler}>Logout</Link>
                     </li>
                   </ul>
                 </li>
@@ -125,4 +131,3 @@ const Header = () => {
 }
 
 export default Header
-
