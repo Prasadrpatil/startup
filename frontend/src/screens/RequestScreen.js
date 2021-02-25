@@ -25,7 +25,7 @@ const RequestScreen = ({ history }) => {
     if (user.startupId) {
       history.push('/profile')
     }
-  }, [dispatch, startupId, success])
+  }, [dispatch, history, startupId, success])
 
   const submitHandler = () => {
     dispatch(updateStartup({ _id: startupId, user }))

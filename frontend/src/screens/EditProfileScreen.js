@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -18,6 +19,8 @@ const EditProfileScreen = ({ history }) => {
   const [toolKit2, setToolKit2] = useState('')
   const [toolKit3, setToolKit3] = useState('')
   const [message, setMessage] = useState(null)
+  const [image, setImage] = useState('')
+  const [uploading, setUploading] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -57,8 +60,32 @@ const EditProfileScreen = ({ history }) => {
           toolKit1,
           toolKit2,
           toolKit3,
+          image,
         })
       )
+    }
+  }
+
+  const uploadFileHandler = async (e) => {
+    const file = e.target.files[0]
+    const formData = new FormData()
+    formData.append('image', file)
+    setUploading(true)
+
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+
+      const { data } = await axios.post('/api/upload', formData, config)
+
+      setImage(data)
+      setUploading(false)
+    } catch (error) {
+      console.error(error)
+      setUploading(false)
     }
   }
 
@@ -94,6 +121,28 @@ const EditProfileScreen = ({ history }) => {
                 {error && <Message variant='danger'>{error}</Message>}
                 {loading && <Loader />}
                 <div className='row'>
+                  <div className=' form-group mt-2'>
+                    <div className=' form-group'>
+                      <i className='fas fa-image m-2 icon' />
+                      <strong>Profile Image</strong>
+                    </div>
+                    <input
+                      type='text'
+                      name='image'
+                      className='form-control'
+                      placeholder='Enter Image Url'
+                      value={image}
+                      onChange={(e) => setImage(e.target.value)}
+                    />
+                    <input
+                      type='file'
+                      name='file'
+                      className='form-control'
+                      onChange={uploadFileHandler}
+                    />
+                    {uploading && <Loader />}
+                  </div>
+
                   <div className=' form-group mt-2'>
                     <div className=' form-group'>
                       <i className='fas fa-user m-2 icon' />

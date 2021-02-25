@@ -16,6 +16,7 @@ const authUser = asycHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       role: user.role,
+      image: user.image,
       token: generateToken(user._id),
     })
   } else {
@@ -120,6 +121,7 @@ const updateUserProfile = asycHandler(async (req, res) => {
     user.toolKit2 = req.body.toolKit2 || user.toolKit2
     user.toolKit3 = req.body.toolKit3 || user.toolKit3
     user.startupId = req.body.startupId || user.startupId
+    user.image = req.body.image || user.image
     if (req.body.password) {
       user.password = req.body.password
     }
