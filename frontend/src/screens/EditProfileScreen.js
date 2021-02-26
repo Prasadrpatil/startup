@@ -6,6 +6,8 @@ import Loader from '../components/Loader'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const EditProfileScreen = ({ history }) => {
   const [name, setName] = useState('')
@@ -40,6 +42,10 @@ const EditProfileScreen = ({ history }) => {
     } else {
       setName(user.name)
       setEmail(user.email)
+    }
+
+    if (success) {
+      toast.info('✔ Profile Updated Successfully!!')
     }
   }, [dispatch, history, userInfo, user, success])
 
@@ -303,6 +309,7 @@ const EditProfileScreen = ({ history }) => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   )
 }
