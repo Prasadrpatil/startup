@@ -86,7 +86,7 @@ const Header = () => {
 
               {userInfo ? (
                 <li className='dropdown'>
-                  <Link to='/'>
+                  <Link>
                     <span>{userInfo.name}</span>
                     <i className='bi bi-chevron-down'></i>
                   </Link>

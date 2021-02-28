@@ -67,19 +67,19 @@ const MemberProfileScreen = ({ history, match }) => {
                       ) : null}
 
                       <div className='social-links text-center text-md-right pt-3 mt-3 pt-md-0'>
-                        <Link to='/profile' className='twitter'>
+                        <Link className='twitter'>
                           <i className='bx bxl-twitter'></i>
                         </Link>
-                        <Link to='/profile' className='facebook'>
+                        <Link className='facebook'>
                           <i className='bx bxl-facebook'></i>
                         </Link>
-                        <Link to='/profile' className='instagram'>
+                        <Link className='instagram'>
                           <i className='bx bxl-instagram'></i>
                         </Link>
-                        <Link to='/profile' className='google-plus'>
+                        <Link className='google-plus'>
                           <i className='bx bxl-skype'></i>
                         </Link>
-                        <Link to='/profile' className='linkedin'>
+                        <Link className='linkedin'>
                           <i className='bx bxl-linkedin'></i>
                         </Link>
                       </div>
@@ -116,7 +116,6 @@ const MemberProfileScreen = ({ history, match }) => {
           </div>
         </div>
       </section>
-    
     </>
   )
 }
