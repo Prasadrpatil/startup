@@ -3,28 +3,22 @@ import { Link } from 'react-router-dom'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { Image } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUserDetails } from '../actions/userActions'
-import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
+import { useSelector } from 'react-redux'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const ProfileScreen = ({ history }) => {
-  const dispatch = useDispatch()
-
   const userDetails = useSelector((state) => state.userDetails)
   const { loading, error, user } = userDetails
 
   const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
-
-  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
-  const { success } = userUpdateProfile
+  const { userInfo, loggedIn } = userLogin
 
   useEffect(() => {
-    if (!user || !user.name || success) {
-      dispatch({ type: USER_UPDATE_PROFILE_RESET })
-      dispatch(getUserDetails('profile'))
+    if (loggedIn) {
+      toast.info('✔ User Signed-In Successfully!!')
     }
-  }, [dispatch, history, userInfo, user, success])
+  }, [])
 
   const editHandler = () => {
     history.push('/editprofile')
@@ -135,7 +129,7 @@ const ProfileScreen = ({ history }) => {
           </div>
         </div>
       </section>
-    
+      <ToastContainer />
     </>
   )
 }
