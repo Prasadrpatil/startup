@@ -1,11 +1,15 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { listUsers } from '../actions/userActions'
 import Mentor from '../components/Mentor'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
-const AllMentorsScreen = ({ history }) => {
+import MentorSearch from '../components/MentorSearch'
+
+const AllMentorsScreen = ({ history, match }) => {
+  const keyword = match.params.keyword
+
   const dispatch = useDispatch()
 
   const userList = useSelector((state) => state.userList)
@@ -18,11 +22,11 @@ const AllMentorsScreen = ({ history }) => {
 
   useEffect(() => {
     if (userInfo) {
-      dispatch(listUsers())
+      dispatch(listUsers(keyword))
     } else {
       history.push('/login')
     }
-  }, [dispatch, history, userInfo])
+  }, [dispatch, history, userInfo, keyword])
   return (
     <>
       {/* <!-- ======= Breadcrumbs ======= --> */}
@@ -31,14 +35,9 @@ const AllMentorsScreen = ({ history }) => {
           <div className='d-flex justify-content-between align-items-center'>
             <h2>Mentors</h2>
             <div className='row justify-content-center'>
-              <div className='input-group'>
-                <div className='form-outline'>
-                  <input type='search' id='form1' className='form-control' />
-                </div>
-                <button type='button' className='btn btn-primary'>
-                  <i className='fas fa-search'></i>
-                </button>
-              </div>
+              <Route
+                render={({ history }) => <MentorSearch history={history} />}
+              />
             </div>
             <ol>
               <li>
@@ -56,7 +55,11 @@ const AllMentorsScreen = ({ history }) => {
           {error && <Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
           <div className='section-title' data-aos='fade-up'>
-            <h2>All Mentors</h2>
+            {!keyword ? (
+              <h2>All Mentors</h2>
+            ) : (
+              <h2>Search Result for "{keyword}"</h2>
+            )}
           </div>
 
           <div className='row'>

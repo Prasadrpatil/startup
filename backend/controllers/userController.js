@@ -152,7 +152,16 @@ const updateUserProfile = asycHandler(async (req, res) => {
 // @route   GET /api/users
 // @access  Private/Admin
 const getUsers = asycHandler(async (req, res) => {
-  const users = await User.find({})
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: 'i',
+        },
+      }
+    : {}
+
+  const users = await User.find({ ...keyword })
   res.json(users)
 })
 

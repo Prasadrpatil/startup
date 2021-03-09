@@ -32,8 +32,16 @@ function App() {
         <Route path='/addstartup' component={AddStartupScreen} />
         <Route path='/mentor/:mentorId' component={MentorProfileScreen} />
         <Route path='/member/:memberId' component={MemberProfileScreen} />
-        <Route path='/allmentors' component={AllMentorsScreen} />
-        <Route path='/allmembers' component={AllMembersScreen} />
+        <Route
+          path='/allmentors/search/:keyword'
+          component={AllMentorsScreen}
+        />
+        <Route path='/allmentors' component={AllMentorsScreen} exact />
+        <Route
+          path='/allmembers/search/:keyword'
+          component={AllMembersScreen}
+        />
+        <Route path='/allmembers' component={AllMembersScreen} exact />
         <Route path='/editprofile' component={EditProfileScreen} />
         <Route path='/profile' component={ProfileScreen} />
         <Route path='/contact' component={ContactScreen} />
