@@ -22,7 +22,7 @@ const MemberSearch = ({ history }) => {
             onChange={(e) => setKeyword(e.target.value)}
           />
         </div>
-        <button type='button' className='btn btn-primary'>
+        <button type='submit' className='btn btn-primary'>
           <i className='fas fa-search'></i>
         </button>
       </div>
