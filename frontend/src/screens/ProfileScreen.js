@@ -4,8 +4,6 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { Image } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 
 const ProfileScreen = ({ history }) => {
   const userDetails = useSelector((state) => state.userDetails)
@@ -13,12 +11,6 @@ const ProfileScreen = ({ history }) => {
 
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo, loggedIn } = userLogin
-
-  useEffect(() => {
-    if (loggedIn) {
-      toast.info('✔ User Signed-In Successfully!!')
-    }
-  }, [])
 
   const editHandler = () => {
     history.push('/editprofile')
@@ -129,7 +121,6 @@ const ProfileScreen = ({ history }) => {
           </div>
         </div>
       </section>
-      <ToastContainer />
     </>
   )
 }
