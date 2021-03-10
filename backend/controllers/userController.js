@@ -17,6 +17,15 @@ const authUser = asycHandler(async (req, res) => {
       email: user.email,
       role: user.role,
       image: user.image,
+      description: user.description,
+      expertise: user.expertise,
+      experience: user.experience,
+      toolKit1: user.toolKit1,
+      toolKit2: user.toolKit2,
+      toolKit3: user.toolKit3,
+      startupId: user.startupId,
+      requestId: user.requestId,
+      requestMessage: user.requestMessage,
       token: generateToken(user._id),
     })
   } else {

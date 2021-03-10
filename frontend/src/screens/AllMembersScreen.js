@@ -6,6 +6,8 @@ import TeamMember from '../components/TeamMember'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import MemberSearch from '../components/MemberSearch'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const AllMembersScreen = ({ history, match }) => {
   const keyword = match.params.keyword
@@ -18,6 +20,9 @@ const AllMembersScreen = ({ history, match }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const userUpdate = useSelector((state) => state.userUpdate)
+  const { success } = userUpdate
+
   const actualUserId = userInfo._id
 
   useEffect(() => {
@@ -26,7 +31,11 @@ const AllMembersScreen = ({ history, match }) => {
     } else {
       history.push('/login')
     }
-  }, [dispatch, history, userInfo, keyword])
+
+    if (success) {
+      toast.info('✔Request Sent Successfully!!')
+    }
+  }, [dispatch, history, userInfo, success, keyword])
   return (
     <>
       {/* <!-- ======= Breadcrumbs ======= --> */}
@@ -74,6 +83,7 @@ const AllMembersScreen = ({ history, match }) => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   )
 }

@@ -6,6 +6,8 @@ import Mentor from '../components/Mentor'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import MentorSearch from '../components/MentorSearch'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const AllMentorsScreen = ({ history, match }) => {
   const keyword = match.params.keyword
@@ -18,6 +20,9 @@ const AllMentorsScreen = ({ history, match }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const userUpdate = useSelector((state) => state.userUpdate)
+  const { success } = userUpdate
+
   const actualUserId = userInfo._id
 
   useEffect(() => {
@@ -26,7 +31,11 @@ const AllMentorsScreen = ({ history, match }) => {
     } else {
       history.push('/login')
     }
-  }, [dispatch, history, userInfo, keyword])
+
+    if (success) {
+      toast.info('✔Request Sent Successfully!!')
+    }
+  }, [dispatch, history, userInfo, success, keyword])
   return (
     <>
       {/* <!-- ======= Breadcrumbs ======= --> */}
@@ -74,6 +83,7 @@ const AllMentorsScreen = ({ history, match }) => {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </>
   )
 }

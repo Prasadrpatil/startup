@@ -38,6 +38,7 @@ const Header = () => {
             <ul>
               <li>
                 <Link to='/' className='active'>
+                  <i className='fas fa-home m-1' />
                   Home
                 </Link>
               </li>
@@ -45,6 +46,7 @@ const Header = () => {
               {userInfo && (
                 <li className='dropdown'>
                   <Link>
+                    <i className='fas fa-users m-1' />
                     <span>Browse More</span>
                     <i className='bi bi-chevron-down'></i>
                   </Link>
@@ -73,20 +75,20 @@ const Header = () => {
                   <li>
                     <Link to='/testimonials'>Testimonials</Link>
                   </li>
+                  <li>
+                    <Link to='/services'>Services</Link>
+                  </li>
+
+                  <li>
+                    <Link to='/contact'>Contact</Link>
+                  </li>
                 </ul>
-              </li>
-
-              <li>
-                <Link to='/services'>Services</Link>
-              </li>
-
-              <li>
-                <Link to='/contact'>Contact</Link>
               </li>
 
               {userInfo ? (
                 <li className='dropdown'>
                   <Link>
+                    <i className='fas fa-user m-1' />
                     <span>{userInfo.name}</span>
                     <i className='bi bi-chevron-down'></i>
                   </Link>
@@ -118,7 +120,10 @@ const Header = () => {
                 </li>
               ) : (
                 <li>
-                  <Link to='/signin'>Sign-In</Link>
+                  <Link to='/signin'>
+                    <i className='fas fa-user m-1' />
+                    Sign-In
+                  </Link>
                 </li>
               )}
             </ul>
