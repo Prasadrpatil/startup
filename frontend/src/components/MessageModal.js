@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../actions/userActions'

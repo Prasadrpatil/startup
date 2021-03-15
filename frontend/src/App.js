@@ -20,6 +20,7 @@ import AddStartupScreen from './screens/AddStartupScreen'
 import StartupScreen from './screens/StartupScreen'
 import EditStartupScreen from './screens/EditStartupScreen'
 import RequestScreen from './screens/RequestScreen'
+import NotFound from './components/NotFound'
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route path='/signin' component={SignInScreen} />
         <Route path='/signup' component={SignUpScreen} />
         <Route path='/' component={HomeScreen} exact />
+        <Route component={NotFound} />
       </main>
 
       <Footer />

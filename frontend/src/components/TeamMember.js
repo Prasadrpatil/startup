@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
-import { getUserDetails, updateUser } from '../actions/userActions'
+import { useSelector } from 'react-redux'
 import MessageModal from './MessageModal'
 
 const User = ({ user, actualUserId }) => {

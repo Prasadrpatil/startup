@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -10,7 +10,7 @@ const ProfileScreen = ({ history }) => {
   const { loading, error, user } = userDetails
 
   const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo, loggedIn } = userLogin
+  const { userInfo } = userLogin
 
   const editHandler = () => {
     history.push('/editprofile')

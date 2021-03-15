@@ -57,6 +57,15 @@ h6 {
   border: 1px solid grey;
 }
 
+.notfound{
+  font-size: 7.5em;
+  margin: 15px 0px;
+  font-weight:bold;
+}
+.notfound2{
+  font-weight:bold;
+}
+
 .btn-get-started {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
