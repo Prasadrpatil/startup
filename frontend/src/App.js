@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Footer from './components/Footer'
 import Header from './components/Header'
 import HomeScreen from './screens/HomeScreen'
@@ -27,33 +27,35 @@ function App() {
     <Router>
       <Header />
       <main className='py-3'>
-        <Route path='/startup/:startupId' component={StartupScreen} />
-        <Route path='/editstartup/:startupId' component={EditStartupScreen} />
-        <Route path='/requests' component={RequestScreen} />
-        <Route path='/addstartup' component={AddStartupScreen} />
-        <Route path='/mentor/:mentorId' component={MentorProfileScreen} />
-        <Route path='/member/:memberId' component={MemberProfileScreen} />
-        <Route
-          path='/allmentors/search/:keyword'
-          component={AllMentorsScreen}
-        />
-        <Route path='/allmentors' component={AllMentorsScreen} exact />
-        <Route
-          path='/allmembers/search/:keyword'
-          component={AllMembersScreen}
-        />
-        <Route path='/allmembers' component={AllMembersScreen} exact />
-        <Route path='/editprofile' component={EditProfileScreen} />
-        <Route path='/profile' component={ProfileScreen} />
-        <Route path='/contact' component={ContactScreen} />
-        <Route path='/services' component={ServiceScreen} />
-        <Route path='/testimonials' component={TestimonialScreen} />
-        <Route path='/team' component={OurTeamScreen} />
-        <Route path='/about' component={AboutScreen} />
-        <Route path='/signin' component={SignInScreen} />
-        <Route path='/signup' component={SignUpScreen} />
-        <Route path='/' component={HomeScreen} exact />
-        <Route component={NotFound} />
+        <Switch>
+          <Route path='/startup/:startupId' component={StartupScreen} />
+          <Route path='/editstartup/:startupId' component={EditStartupScreen} />
+          <Route path='/requests' component={RequestScreen} />
+          <Route path='/addstartup' component={AddStartupScreen} />
+          <Route path='/mentor/:mentorId' component={MentorProfileScreen} />
+          <Route path='/member/:memberId' component={MemberProfileScreen} />
+          <Route
+            path='/allmentors/search/:keyword'
+            component={AllMentorsScreen}
+          />
+          <Route path='/allmentors' component={AllMentorsScreen} exact />
+          <Route
+            path='/allmembers/search/:keyword'
+            component={AllMembersScreen}
+          />
+          <Route path='/allmembers' component={AllMembersScreen} exact />
+          <Route path='/editprofile' component={EditProfileScreen} />
+          <Route path='/profile' component={ProfileScreen} />
+          <Route path='/contact' component={ContactScreen} />
+          <Route path='/services' component={ServiceScreen} />
+          <Route path='/testimonials' component={TestimonialScreen} />
+          <Route path='/team' component={OurTeamScreen} />
+          <Route path='/about' component={AboutScreen} />
+          <Route path='/signin' component={SignInScreen} />
+          <Route path='/signup' component={SignUpScreen} />
+          <Route path='/' component={HomeScreen} exact />
+          <Route component={NotFound} />
+        </Switch>
       </main>
 
       <Footer />
