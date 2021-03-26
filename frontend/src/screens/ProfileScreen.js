@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { Image } from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserDetails } from '../actions/userActions'
 
 const ProfileScreen = ({ history }) => {
   const userDetails = useSelector((state) => state.userDetails)
@@ -12,9 +13,18 @@ const ProfileScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+  const { success } = userUpdateProfile
+
   const editHandler = () => {
     history.push('/editprofile')
   }
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUserDetails('profile'))
+  }, [dispatch, success])
 
   const addStartupHandler = () => {
     history.push('/addstartup')
