@@ -95,7 +95,7 @@ const RegisterScreen = ({ history }) => {
                       <i className='fas fa-users m-2 icon' />
                       <strong>Role</strong>
                     </div>
-                    <div class='radio-container'>
+                    <div className='radio-container'>
                       <input
                         type='radio'
                         id='mentor'
@@ -103,7 +103,7 @@ const RegisterScreen = ({ history }) => {
                         value='mentor'
                         onChange={(e) => setRole(e.target.value)}
                       />
-                      <label for='mentor'>Mentor</label>
+                      <label htmlFor='mentor'>Mentor</label>
 
                       <input
                         type='radio'
@@ -112,7 +112,7 @@ const RegisterScreen = ({ history }) => {
                         value='member'
                         onChange={(e) => setRole(e.target.value)}
                       />
-                      <label for='member'>Team Member</label>
+                      <label htmlFor='member'>Team Member</label>
 
                       <input
                         type='radio'
@@ -121,7 +121,7 @@ const RegisterScreen = ({ history }) => {
                         value='leader'
                         onChange={(e) => setRole(e.target.value)}
                       />
-                      <label for='leader'>Team Leader</label>
+                      <label htmlFor='leader'>Team Leader</label>
                     </div>
                   </div>
                   <div className='form-group mt-2'>

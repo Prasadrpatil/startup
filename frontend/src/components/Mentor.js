@@ -1,13 +1,23 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import MessageModal from './MessageModal'
+import { useDispatch, useSelector } from 'react-redux'
+import { getUserDetails } from '../actions/userActions'
 
 const Mentor = ({ user, actualUserId }) => {
   const [modalShow, setModalShow] = useState(false)
 
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
+  const userDetails = useSelector((state) => state.userDetails)
+  const { user: userDetail } = userDetails
+
+  const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
+  const { success } = userUpdateProfile
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(getUserDetails('profile'))
+  }, [dispatch, success])
 
   return (
     <>
@@ -38,7 +48,7 @@ const Mentor = ({ user, actualUserId }) => {
                 <h4>{user.name}</h4>
               </Link>
               <span>Chief Executive Officer</span>
-              {userInfo.role === 'leader' && (
+              {userDetail.role === 'leader' && (
                 <Link
                   className='btn-get-started mt-2'
                   onClick={() => setModalShow(true)}

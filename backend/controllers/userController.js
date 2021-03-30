@@ -123,6 +123,7 @@ const updateUserProfile = asycHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name
     user.email = req.body.email || user.email
+    user.role = req.body.role || user.role
     user.description = req.body.description || user.description
     user.expertise = req.body.expertise || user.expertise
     user.experience = req.body.experience || user.experience
