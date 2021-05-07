@@ -15,6 +15,7 @@ const authUser = asycHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phoneNo: user.phoneNo,
       role: user.role,
       image: user.image,
       description: user.description,
@@ -38,7 +39,7 @@ const authUser = asycHandler(async (req, res) => {
 // @route   POST /api/users
 // @access  Public
 const registerUser = asycHandler(async (req, res) => {
-  const { name, email, password, confirmPassword, role } = req.body
+  const { name, email, password, confirmPassword, role, phoneNo } = req.body
 
   const userExists = await User.findOne({ email })
 
@@ -49,8 +50,10 @@ const registerUser = asycHandler(async (req, res) => {
 
   // eslint-disable-next-line
   const format = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/
-
-  if (password.length < 6) {
+  if (phoneNo.length !== 10) {
+    res.status(400)
+    throw new Error('Invalid Contact No...')
+  } else if (password.length < 6) {
     res.status(400)
     throw new Error('Password Should AtLeast of 6 characters...')
   } else if (!format.test(password)) {
@@ -68,6 +71,7 @@ const registerUser = asycHandler(async (req, res) => {
     password,
     role,
     image,
+    phoneNo,
   })
 
   if (user) {
@@ -77,6 +81,7 @@ const registerUser = asycHandler(async (req, res) => {
       email: user.email,
       role: user.role,
       image: user.image,
+      phoneNo: user.phoneNo,
       token: generateToken(user._id),
     })
   } else {
@@ -96,6 +101,7 @@ const getUserProfile = asycHandler(async (req, res) => {
       _id: user._id,
       name: user.name,
       email: user.email,
+      phoneNo: user.phoneNo,
       role: user.role,
       image: user.image,
       description: user.description,

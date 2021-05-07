@@ -11,6 +11,7 @@ const RegisterScreen = ({ history }) => {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [role, setRole] = useState('')
+  const [phoneNo, setPhoneNo] = useState()
 
   const dispatch = useDispatch()
 
@@ -28,10 +29,8 @@ const RegisterScreen = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-
-    dispatch(register(name, email, password, confirmPassword, role))
+    dispatch(register(name, email, password, confirmPassword, role, phoneNo))
   }
-
   return (
     <>
       <section id='breadcrumbs' className='breadcrumbs'>
@@ -90,6 +89,23 @@ const RegisterScreen = ({ history }) => {
                       onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
+                  <div className=' form-group mt-2'>
+                    <div className=' form-group'>
+                      <i className='fas fa-phone m-2 icon' />
+                      <strong>Contact</strong>
+                    </div>
+                    <input
+                      className='form-control'
+                      type='number'
+                      id='phone'
+                      name='phone'
+                      placeholder='Your Contact No*'
+                      value={phoneNo}
+                      onChange={(e) => setPhoneNo(e.target.value)}
+                      required
+                    />
+                  </div>
+
                   <div className=' form-group mt-2 '>
                     <div className=' form-group'>
                       <i className='fas fa-users m-2 icon' />
