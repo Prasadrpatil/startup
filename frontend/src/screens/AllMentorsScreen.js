@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, Route } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { listUsers } from '../actions/userActions'
@@ -13,6 +13,8 @@ const AllMentorsScreen = ({ history, match }) => {
   const keyword = match.params.keyword
 
   const dispatch = useDispatch()
+
+  const [SuccesChange, setSuccesChange] = useState(false)
 
   const userList = useSelector((state) => state.userList)
   const { loading, error, users } = userList
@@ -32,8 +34,10 @@ const AllMentorsScreen = ({ history, match }) => {
       history.push('/login')
     }
 
-    if (success) {
+    setSuccesChange(success)
+    if (SuccesChange) {
       toast.info('✔Request Sent Successfully!!')
+      setSuccesChange(false)
     }
   }, [dispatch, history, userInfo, success, keyword])
   return (

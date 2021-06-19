@@ -4,11 +4,14 @@ import MessageModal from './MessageModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserDetails } from '../actions/userActions'
 
-const User = ({ user, actualUserId }) => {
+const User = ({ user, actualUserId, history }) => {
   const [modalShow, setModalShow] = useState(false)
 
   const userDetails = useSelector((state) => state.userDetails)
   const { user: userDetail } = userDetails
+
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
   const { success } = userUpdateProfile
@@ -16,8 +19,13 @@ const User = ({ user, actualUserId }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getUserDetails('profile'))
-  }, [dispatch, success])
+    if (userInfo) {
+      dispatch(getUserDetails('profile'))
+    } else {
+      history.push('/login')
+    }
+    dispatch(getUserDetails(user._id))
+  }, [dispatch, success, userInfo])
 
   return (
     <>
@@ -49,15 +57,23 @@ const User = ({ user, actualUserId }) => {
                 <Link to={`/member/${user._id}`}>
                   <h4>{user.name}</h4>
                 </Link>
-                <span>Chief Executive Officer</span>
+                <span>{user?.role}</span>
 
-                {userDetail.role === 'leader' && (
-                  <Link
-                    className='btn-get-started mt-2'
-                    onClick={() => setModalShow(true)}
-                  >
-                    Send Request
+                {user.requestId ? (
+                  <Link className='btn-get-started mt-2'>
+                    Request Already Sent
                   </Link>
+                ) : (
+                  userInfo.role === 'leader' &&
+                  userInfo.startupId &&
+                  user.requestId === null && (
+                    <Link
+                      className='btn-get-started mt-2'
+                      onClick={() => setModalShow(true)}
+                    >
+                      Send Request
+                    </Link>
+                  )
                 )}
 
                 <MessageModal
