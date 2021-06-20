@@ -96,16 +96,16 @@ const Header = () => {
                     <li>
                       <Link to='/profile'>Profile</Link>
                     </li>
-                    {user?.startupId ? (
+                    {userInfo?.startupId ? (
                       <>
                         <li>
-                          <Link to={`/startup/${user?.startupId}`}>
+                          <Link to={`/startup/${userInfo?.startupId}`}>
                             StartUp
                           </Link>
                         </li>
                       </>
                     ) : (
-                      user?.requestId && (
+                      userInfo?.requestId && (
                         <>
                           <li>
                             <Link to='/requests'>Requests</Link>
