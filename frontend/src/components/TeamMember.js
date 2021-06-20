@@ -20,11 +20,10 @@ const User = ({ user, actualUserId, history }) => {
 
   useEffect(() => {
     if (userInfo) {
-      dispatch(getUserDetails('profile'))
+      dispatch(getUserDetails(user._id))
     } else {
       history.push('/login')
     }
-    dispatch(getUserDetails(user._id))
   }, [dispatch, success, userInfo])
 
   return (
