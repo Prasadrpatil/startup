@@ -56,7 +56,9 @@ const Mentor = ({ user, actualUserId, history }) => {
                 <h4>{user.name}</h4>
               </Link>
               <span>{user?.role}</span>
-              {user.requestId ? (
+              {userInfo.role === 'leader' &&
+              userInfo.startupId &&
+              user.requestId ? (
                 <Link className='btn-get-started mt-2'>
                   Request Already Sent
                 </Link>
